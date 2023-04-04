@@ -1,0 +1,94 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    
+}
+
+body{
+   font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.form-box {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px;
+    width: 500px;
+    height: 300px;
+    border-width: 5px;
+    border-style: solid;
+    border: 10px 0px 10px 0px;
+    position: absolute;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+   
+    
+}
+
+.login-form input[type="username"]{
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 10px;
+    border-width: 1px;
+}
+
+.login-form input[type="password"]{
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 10px;
+    border-width: 1px;
+}
+
+.login-form input[type="submit"]{
+    padding: 5px 5px 5px 0px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color:rgb(162, 162, 162);
+    border-width: 0px;
+}
+
+.login-form input[type="submit"]:hover{
+    background-color:rgb(143, 143, 143);
+    
+}
+
+#login-txt {
+    margin-bottom: 10px;
+}
+
+#signup-link {
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+
+#usernamebox {
+    padding: 5px 5px 5px 5px;
+}
+
+#passwordbox{
+    padding: 5px 5px 5px 5px;
+}
+
+#username, #password {
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 0px;
+}
+
