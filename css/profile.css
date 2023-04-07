@@ -1,0 +1,61 @@
+*{
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+.dashboard-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.599);
+  }
+  
+  .userdashboard {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  /* Example of styling a specific element */
+  p:first-of-type {
+    font-weight: bold;
+  }
+  
+  /* Example of styling multiple elements */
+  p:nth-of-type(2),
+  p:nth-of-type(3),
+  p:nth-of-type(4),
+  p:nth-of-type(5),
+  p:last-of-type {
+    color: #555;
+  }
+  
+  .button-container {
+    margin-top: 1rem;
+  }
+  
+  button {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  
+  .button-container p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #555;
+  }
