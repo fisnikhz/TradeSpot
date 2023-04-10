@@ -20,18 +20,20 @@ try {
     $mail->Port       = 587; 
  
     $mail->setFrom('tradespotphp@gmail.com', 'Trade Spot');          
-    $mail->addAddress($_POST["Email"]);
+    $mail->addAddress($_POST["email"]);
       
     $mail->isHTML(true);                                 
     $mail->Subject = 'Newsletter from Trade Spot';
-    $mail->Body    = 'HTML message body in <b>bold</b> ';
-    $mail->AltBody = 'Body in plain text for non-HTML mail clients';
+    $mail->Body    = 'Hello '.$_POST["name"].'! Thank you for your subscription.';
+    $mail->AltBody = 'Hello $_POST["name"]! Thank you for your subscription.';
     $mail->send();
     echo "Mail has been sent successfully!";
-} 
-
-catch (Exception $e) {
+} catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
  
 ?>
+
+<html>
+    <p>Confirmation!</p>
+</html>
