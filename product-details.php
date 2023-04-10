@@ -4,10 +4,6 @@
 <head>
   <title>Projekti Ueb2</title>
   <link rel="stylesheet" href="css/hp.css">
-  <!-- <?php
-  require_once 'session.php';
-  requireAuth();
-  ?> -->
 
   <style>
     .product-details {

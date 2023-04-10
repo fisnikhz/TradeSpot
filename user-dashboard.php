@@ -48,7 +48,11 @@ if (isset($_POST['post'])) {
             }
         }
 
-        echo "Product posted successfully!";
+        echo ' <script>
+          notDisplay();
+          showError("Product posted successfully!");
+          //notDisplay();
+          </script>';
     } else {
         echo "Error posting product: " . $conn->error;
     }

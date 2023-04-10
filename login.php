@@ -67,6 +67,9 @@
       <h3 id="modal_message" style="color: #f00;"></h3>
     </div>
   </div>
+
+  <script src="openModal.js"></script>
+
   <div class="navbar">
     <h1 class="logo">TradeSpot</h1>
     <a href="homepage.php">Home</a>
@@ -112,48 +115,18 @@
           exit;
         } else {
           echo ' <script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    // Show the modal with a message
-    function showError(message) {
-      var modalMessage = document.getElementById("modal_message");
-      modalMessage.innerHTML = message;
-      modal.style.display = "block";
-    }
-    showError("Incorrect password");
-  </script>';
+          notDisplay();
+          showError("Incorrect password");
+          //notDisplay();
+          </script>';
         }
       } else {
         // user does not exist, show error message
         echo ' <script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    // Show the modal with a message
-    function showError(message) {
-      var modalMessage = document.getElementById("modal_message");
-      modalMessage.innerHTML = message;
-      modal.style.display = "block";
-    }
-    showError("User not found");
-  </script>';
+        notDisplay();
+        showError("User not found");
+      //  notDisplay();
+        </script>';
       }
     }
 
@@ -174,32 +147,6 @@
     </div>
     </h1>
   </div>
-
-  <script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // window.onload = function() {
-    //         modal.style.display = "none";
-
-    // };
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    // Show the modal with a message
-    function showError(message) {
-      var modalMessage = document.getElementById("modal_message");
-      modalMessage.innerHTML = message;
-      modal.style.display = "block";
-    }
-    showError("Incorrect password");
-  </script>
 </body>
 
 </html>

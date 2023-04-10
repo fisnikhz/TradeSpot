@@ -30,24 +30,6 @@ if (isset($_REQUEST["term"])) {
           ORDER BY p.id DESC";
     }
 
-    echo "<style>
-    .product-card .button {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #333;
-        color: #fff;
-        font-size: 16px;
-        text-decoration: none;
-        border-radius: 5px;
-        margin-left: 35%;
-    }
-
-    .product-card .button:hover {
-        background-color: #fff;
-        color: #333;
-        border: 2px solid #333;
-    }
-</style>";
     if ($stmt = mysqli_prepare($link, $sql)) {
         // Bind variables to the prepared statement as parameters
         mysqli_stmt_bind_param($stmt, "ss", $param_term, $param_term);

@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="css/hp.css">
   <link rel="stylesheet" href="css/profile.css">
 
-
   <style>
 
   </style>

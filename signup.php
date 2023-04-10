@@ -6,11 +6,72 @@
     <link rel="stylesheet" href="css/hp.css">
     <link rel="stylesheet" href="css/signup.css">
     <style>
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            margin-left: 80px;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
 
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* The Close Button */
+        .close {
+            color: #333;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: black;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #fff;
+            text-decoration: none;
+        }
     </style>
 </head>
 
 <body>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modal_message" style="color: #f00;"></h3>
+        </div>
+    </div>
+
+    <script src="openModal.js"></script>
+
     <div class="navbar">
         <h1 class="logo">TradeSpot</h1>
         <a href="homepage.php">Home</a>
@@ -55,7 +116,11 @@
 
             if (mysqli_num_rows($result) > 0) {
                 // username or email already exist, show error message
-                echo "Username or email already exist";
+                echo ' <script>
+          notDisplay();
+          showError("Username or email already exist");
+          //notDisplay();
+          </script>';
             } else {
                 // username and email do not exist, insert new user into database
                 $sql = "INSERT INTO users (name, lastname, username, phone, address, city, email, password)
@@ -89,11 +154,19 @@
                     exit;
                 } else {
                     // password is incorrect, show error message
-                    echo "Incorrect password";
+                    echo ' <script>
+          notDisplay();
+          showError("Incorrect password");
+          //notDisplay();
+          </script>';
                 }
             } else {
                 // user does not exist, show error message
-                echo "User not found";
+                echo ' <script>
+          notDisplay();
+          showError("User not found");
+          //notDisplay();
+          </script>';
             }
         }
 

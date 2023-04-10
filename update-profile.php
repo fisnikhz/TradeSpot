@@ -64,11 +64,19 @@
             $sql = "UPDATE users SET name='$name', lastname='$lastname', username='$username', phone='$phone', address='$address', City='$City', email='$email', password='$hashed_password' WHERE id=" . $_SESSION['user_id'];
             if (mysqli_query($conn, $sql)) {
                 // user information updated successfully, show success message
-                echo "User information updated successfully";
+                echo ' <script>
+          notDisplay();
+          showError("User information updated successfully");
+          //notDisplay();
+          </script>';
             } else {
                 // user information update failed, show error message
-                echo "Error updating user information: " . mysqli_error($conn);
-            }
+                echo ' <script>
+          notDisplay();
+          showError("Error updating user information: " . mysqli_error($conn));
+          //notDisplay();
+          </script>';
+              }
         }
 
         // get user information from database
