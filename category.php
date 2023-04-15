@@ -4,7 +4,35 @@
 <head>
   <title>Projekti Ueb2</title>
   <link rel="stylesheet" href="css/hp.css">
-  
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.search-box input[type="text"]').on("keyup input", function() {
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if (inputVal.length) {
+          $.get("search.php", {
+            term: inputVal
+          }).done(function(data) {
+            // Display the returned data in browser
+            resultDropdown.html(data);
+            $('#no-search').css("display", "none");
+          });
+        } else {
+          resultDropdown.empty();
+          $('#no-search').css("display", "block");
+
+        }
+      });
+
+      // Set search input value on click of result item
+      $(document).on("click", ".result p", function() {
+        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+      });
+    });
+  </script>
 
   <style>
     .dropdown {
@@ -79,7 +107,33 @@
       color: #333;
       border: 2px solid #333;
     }
+
+    .search-box {
+      width: 100%;
+      position: relative;
+      display: inline-block;
+      font-size: 14px;
+    }
+
+    .search-box input[type="text"] {
+      margin-left: 35%;
+      width: 300px;
+      height: 32px;
+      padding: 5px 10px;
+      border: 1px solid #CCCCCC;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .result {
+      display: inline-block;
+      position: absolute;
+      z-index: 999;
+      top: 100%;
+      left: 0;
+    }
   </style>
+
 </head>
 
 <body>
@@ -110,93 +164,69 @@
   </div>
   <div class="content">
     <!-- Add a search form to the HTML -->
-    <form method="get">
-      <input type="text" name="search" placeholder="Search products...">
-      <button type="submit">Search</button>
-    </form>
+    <div class="search-box">
+      <input type="text" autocomplete="off" placeholder="Search product..." />
+      <div class="result">
 
-    <?php
-    // Establish a connection to the database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "ueb2";
+      </div>
+    </div>
 
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    <div id="no-search">
 
-    // Check the connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
+      <?php
+      // Establish a connection to the database
+      $servername = "localhost";
+      $username = "root";
+      $password = "";
+      $dbname = "ueb2";
+
+      $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+      // Check the connection
+      if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+      }
 
 
-    // Get the search term from the form
-    $searchTerm = "";
-    if (isset($_GET['search'])) {
-      $searchTerm = $_GET['search'];
-    }
+      // Check if the category parameter is set
+      if (isset($_GET['category'])) {
+        // Get the category from the URL parameter
+        $category = $_GET['category'];
 
-    // Retrieve the products from the database based on the search term
-    if (!empty($searchTerm)) {
-      $sql = "SELECT products.*, images.pimage
-          FROM products
-          LEFT JOIN (
-            SELECT product_id, MIN(pimage) AS pimage FROM images GROUP BY product_id
-          ) images
-          ON products.id = images.product_id
-          WHERE products.pname LIKE '%$searchTerm%' OR products.pdesc LIKE '%$searchTerm%'
-          ORDER BY products.id DESC";
-    } else {
-      $sql = "SELECT p.*, i.pimage
-          FROM products p
-          LEFT JOIN (
-            SELECT product_id, MIN(pimage) AS pimage FROM images GROUP BY product_id
-          ) i
-          ON p.id = i.product_id
-          ORDER BY p.id DESC";
-    }
-
-    $result = $conn->query($sql);
-
-    // Check if the category parameter is set
-    if (isset($_GET['category'])) {
-      // Get the category from the URL parameter
-      $category = $_GET['category'];
-
-      // Build and execute the SQL query
-      $sql = "SELECT p.*, i.pimage
+        // Build and execute the SQL query
+        $sql = "SELECT p.*, i.pimage
           FROM products p
           LEFT JOIN (
             SELECT product_id, MIN(pimage) AS pimage FROM images GROUP BY product_id
           ) i
           ON p.id = i.product_id
     WHERE pcategory = '$category' ORDER BY p.id DESC";
-      $result = mysqli_query($conn, $sql);
+        $result = mysqli_query($conn, $sql);
 
 
-      // Display the results
-      if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-          echo "<div class='product-card'>";
-          echo "<img src='" . $row['pimage'] . "'>";
-          echo "<div class='product-content'>";
-          echo "<h4>" . $row['pname'] . "</h4>";
-          echo "<p><b>" . $row['pcategory'] . "</b></p>";
-          echo "<div class='price'>" . $row['pprice'] . "</div>";
-          echo "<a href='product-details.php?id=" . $row['id'] . "' class='button'>Buy Now</a>";
-          echo "</div>";
-          echo "</div>";
+        // Display the results
+        if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_assoc($result)) {
+            echo "<div class='product-card'>";
+            echo "<img src='" . $row['pimage'] . "'>";
+            echo "<div class='product-content'>";
+            echo "<h4>" . $row['pname'] . "</h4>";
+            echo "<p><b>" . $row['pcategory'] . "</b></p>";
+            echo "<div class='price'>" . $row['pprice'] . "</div>";
+            echo "<a href='product-details.php?id=" . $row['id'] . "' class='button'>Buy Now</a>";
+            echo "</div>";
+            echo "</div>";
+          }
+        } else {
+          echo "No results found.";
         }
-      } else {
-        echo "No results found.";
       }
-    }
 
-    // Close the connection
-    mysqli_close($conn);
-    ?>
+      // Close the connection
+      mysqli_close($conn);
+      ?>
 
-
+    </div>
 
   </div>
 </body>
