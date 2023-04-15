@@ -1,4 +1,26 @@
+<?php
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
 
+    $nameErr = $emailErr = "";
+
+    if(empty($name)) {
+        $nameErr = "Name is required";
+    } else {
+        if(!preg_match("/^[a-zA-Z ]*$/", $name)) {
+            $nameErr = "Only letters and white space allowed";
+        }
+    }
+
+    if(empty($email)) {
+        $emailErr = "Email is required";
+    } else {
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format";
+        }
+    }
+?>
 <!doctype html>
 <html lang="en">
   <head>
