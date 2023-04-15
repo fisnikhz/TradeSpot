@@ -222,11 +222,16 @@
 
         $result2 = mysqli_query($conn, $sql2);
 
-        // check if the deletion was successful
-        if ($result2) {
-          echo "Product marked as sold.";
+        if ($result) {
+          // Redirect to the user's profile page with a success message
+          echo "Product marked as sold successfully!<br>";
+          header("Location: profile.php");
+          exit();
         } else {
-          echo "Error marking product as sold: " . mysqli_error($conn);
+          // Redirect to the user's profile page with an error message
+          echo "Error marking product as sold.!<br>";
+          header("Location: profile.php");
+          exit();
         }
 
         // close the database connection
