@@ -20,7 +20,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $emailErr = "Invalid email format";
         }
     }
-}
 ?>
 <!doctype html>
 <html lang="en">
