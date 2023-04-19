@@ -209,7 +209,7 @@
     <a href="user-dashboard.php">Dashboard</a>
     <a href="#">About</a>
     <a href="#">Services</a>
-    <a href="#">Contact</a>
+    <a href="contact.php">Contact</a>
   </div>
   <div class="content">
     <?php

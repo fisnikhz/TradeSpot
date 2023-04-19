@@ -1,6 +1,17 @@
 *{
     font-family: "Helvetica Neue", Arial, sans-serif;
 }
+  .logo{
+    color: White;
+    padding-left: 20px;
+    padding-top: 5px;
+    margin-bottom: 60px;
+  }
+  .content {
+    margin-left: 200px; /* Same as the width of the navbar */
+    padding: 20px;
+  }
+
 .navbar {
     display: flex;
     flex-direction: column;
@@ -25,60 +36,7 @@
   .navbar a:hover {
     color: #f1f1f1;
   }
-  .logo{
-    color: White;
-    padding-left: 20px;
-    padding-top: 5px;
-    margin-bottom: 60px;
-  }
-  .content {
-    margin-left: 200px; /* Same as the width of the navbar */
-    padding: 20px;
-  }
-
-  *{
-    font-family: "Helvetica Neue", Arial, sans-serif;
-}
-.navbar {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 200px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #333;
-    overflow-x: hidden;
-    /* padding-top: 60px; */
-  }
   
-  .navbar a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-  }
-  
-  .navbar a:hover {
-    color: #f1f1f1;
-  }
-  .logo{
-    color: White;
-    padding-left: 20px;
-    padding-top: 5px;
-    margin-bottom: 60px;
-  }
-  .content {
-    margin-left: 200px; /* Same as the width of the navbar */
-    padding: 20px;
-  }
-
-
-
-  
-
- 
   .product-card {
     border: 1px solid #ccc;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
