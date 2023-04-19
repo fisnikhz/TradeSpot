@@ -175,7 +175,6 @@
         <div class="form-box">
             <img id="form-background" src="Images\home-nike.png" alt="">
 
-
             <form class="form" action="signup.php" method="post">
                 <div style="width:180px;">
                     <h1>Sign up</h1>

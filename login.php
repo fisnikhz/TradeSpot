@@ -79,59 +79,7 @@
     <a href="#">Contact</a>
   </div>
   <div class="content">
-    <?php
-    // establish database connection
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "ueb2";
-
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-    // check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-
-    // handle login form submission
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
-      $username = mysqli_real_escape_string($conn, $_POST['username_or_email']);
-      $password = mysqli_real_escape_string($conn, $_POST['password']);
-
-      $sql = "SELECT * FROM users WHERE username='$username' OR email='$username'";
-      $result = mysqli_query($conn, $sql);
-
-      if (mysqli_num_rows($result) == 1) {
-        $row = mysqli_fetch_assoc($result);
-        if (password_verify($password, $row['password'])) {
-          // password is correct, start session and redirect to homepage or dashboard depending on user role
-          session_start();
-          $_SESSION['user_id'] = $row['id'];
-          if ($row['email'] == 'admin@admin.com' && $password == 'admin' || ($row['username'] == 'admin')) {
-            header("Location: dashboard.php");
-          } else {
-            header("Location: homepage.php");
-          }
-          exit;
-        } else {
-          echo ' <script>
-          notDisplay();
-          showError("Incorrect password");
-          //notDisplay();
-          </script>';
-        }
-      } else {
-        // user does not exist, show error message
-        echo ' <script>
-        notDisplay();
-        showError("User not found");
-      //  notDisplay();
-        </script>';
-      }
-    }
-
-    mysqli_close($conn);
-    ?> <div class="form-box">
+     <div class="form-box">
       <div class="form">
         <form class="login-form" action="login.php" method="post">
           <h1 id="login-txt">Login</h1>
@@ -142,6 +90,7 @@
           <input type="password" id="passwordbox" name="password">
           <p id="signup-link">Dont have a account, <a href="signup.php">sign up.</a></p>
           <input type="submit" name="login" value="Login">
+          <p id="signup-link">Forgot your password? <a href="forgot.php">Reset it now!</a></p>
         </form>
       </div>
     </div>
