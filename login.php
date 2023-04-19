@@ -142,6 +142,7 @@
           <input type="password" id="passwordbox" name="password">
           <p id="signup-link">Dont have a account, <a href="signup.php">sign up.</a></p>
           <input type="submit" name="login" value="Login">
+          <p id="signup-link">Forgot your password? <a href="forgot.php">Reset it now!</a></p>
         </form>
       </div>
     </div>
