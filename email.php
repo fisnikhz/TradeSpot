@@ -1,38 +1,38 @@
-<?php
- 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
- 
-require 'phpmailer/src/Exception.php';
-require 'phpmailer/src/PHPMailer.php';
-require 'phpmailer/src/SMTP.php';
-
-$mail = new PHPMailer(true);
- 
-try {
-    $mail->SMTPDebug = 2;                                      
-    $mail->isSMTP();                                           
-    $mail->Host       = 'smtp.gmail.com;';                   
-    $mail->SMTPAuth   = true;                            
-    $mail->Username   = 'tradespotphp@gmail.com';                
-    $mail->Password   = 'wduhpuppnrpjsven';                       
-    $mail->SMTPSecure = 'tls';                             
-    $mail->Port       = 587; 
- 
-    $mail->setFrom('tradespotphp@gmail.com', 'Trade Spot');          
-    $mail->addAddress($_POST["email"]);
-      
-    $mail->isHTML(true);                                 
-    $mail->Subject = 'Newsletter from Trade Spot';
-    $mail->Body    = 'Hello '.$_POST["name"].'! Thank you for your subscription.';
-    $mail->AltBody = 'Hello $_POST["name"]! Thank you for your subscription.';
-    $mail->send();
-    echo "Mail has been sent successfully!";
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-}
-?>
 <html>
-    <p>Confirmation!</p>
-    <P>CONFIRMATION</P>
+<head>
+  <meta http-equiv="content-type" content="text/html"; charset="utf-8"/>
+    <title>Welcome</title>
+    <link href="email.css" rel="stylesheet" type="text/css"/>
+<body>
+<?php
+
+$to_mail=$_POST["email"];
+$subject="Newsletter from TradeSpot";
+$body="
+<div style='background-color: #f2f2f2; padding: 20px;'>
+  <h2 style='text-align: center;'>Welcome to our Newsletter</h2>
+  <p>Dear ".$_POST["name"]. "</p>
+  <p>Thank you for subscribing to our newsletter! You will now receive the latest news and updates from us straight to your inbox.</p>
+  <p>If you have any questions or feedback, please don't hesitate to contact us. We value your opinion and would love to hear from you.</p>
+  <p>Best regards,</p>
+  <p>The TradeSpot Team</p>
+</div>
+";
+$headers[] = 'MIME-Version: 1.0';
+$headers[] = 'Content-type: text/html; charset=iso-8859-1';
+$headers[] = "From: Trade Spot";
+
+
+if(mail($to_mail,$subject,$body,implode("\r\n", $headers))){
+
+    echo "<h3>Thank you! Now you will receive an email.<br>You are welcome again!</h3>
+    <br /><a href='javascript:history.go(-1)' style='margin-left:750px;color:red;font-weight:bold;'>Go Back</a>";
+}
+
+else{
+    echo "Email was not sent!";
+}
+
+?>
+</body>
 </html>

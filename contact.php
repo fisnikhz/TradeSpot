@@ -36,9 +36,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	<link rel="stylesheet" href="css/contact-style.css">
 	<!-- <link rel="stylesheet" href="css/hp.css"> -->
 	<style>
-		/* *{
+		*{
 			font-family: "Helvetica Neue", Arial, sans-serif;
-		} */
+		}
 		.logo{
 			color: White;
 			padding-left: 20px;

@@ -1,15 +1,6 @@
 <?php
    // establish database connection
-   $servername = "localhost";
-   $username = "root";
-   $password = "";
-   $dbname = "ueb2";
-   
-   $conn = mysqli_connect($servername, $username, $password, $dbname);
-    // check connection
-   if (!$conn) {
-     die("Connection failed: " . mysqli_connect_error());
-   }
+   require_once("sql/connection.php");
    
    if(isset($_POST["email"]) && (!empty($_POST["email"]))){
    $email = $_POST["email"];
@@ -79,7 +70,7 @@
    $headers[] = 'MIME-Version: 1.0';
    $headers[] = 'Content-type: text/html; charset=iso-8859-1';
    
-   $headers[] = "From: TradeSpot";
+   $headers[] = "From: Trade Spot";
    
    if(mail($to_mail,$subject,$body,implode("\r\n", $headers))){
    
@@ -88,7 +79,8 @@
     <meta http-equiv='content-type' content='text/html'; charset='utf-8'/>
       <title>Success!</title>
       <link href='css/signup.css' rel='stylesheet' type='text/css'/>
-   <body><h3 style='color:red;text-align:center;'>You will receive a link to reset your password!</h3></body>
+   <body><h3 style='color:red;text-align:center;'>You will receive a link to reset your password!</h3>
+   <br /><a href='javascript:history.go(-1)' style='margin-left:750px;color:red;font-weight:bold;'>Go Back</a></body>
    </html>";
    }
    else{
