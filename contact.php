@@ -35,14 +35,61 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="css/contact-style.css">
+	<!-- <link rel="stylesheet" href="css/hp.css"> -->
+	<style>
+		/* *{
+			font-family: "Helvetica Neue", Arial, sans-serif;
+		} */
+		.logo{
+			color: White;
+			padding-left: 20px;
+			padding-top: 20px;
+			margin-bottom: 50px;
+			font-weight: bold;
+		}
+		.content {
+			margin-left: 200px; /* Same as the width of the navbar */
+			padding: 20px;
+		}
+		.navbar {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			width: 200px;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			background-color: #333;
+			overflow-x: hidden;
+			/* padding-top: 60px; */
+		}
+		.navbar a {
+			padding-left: 16px;
+			text-decoration: none;
+			font-size: 25px;
+			color: #818181;
+		}
+		.navbar a:hover {
+			color: #f1f1f1;
+		}
+	</style>
 
 	</head>
 	<body>
-	<section class="ftco-section">
+	<div class="navbar">
+         <h2 class="logo">TradeSpot</h2>
+         <a href="homepage.php">Home</a>
+         <a href="profile.php">Profile</a>
+         <a href="about.php">About</a>
+         <a href="#">Services</a>
+         <a href="contact.php">Contact</a>
+    </div>
+	<section class="ftco-section content" style="margin-left: 200px;">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Contact</h2>
+					<h3>Contact</h3>
 				</div>
 			</div>
 			<div class="row justify-content-center">
@@ -108,7 +155,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			        			<span class="fa fa-paper-plane"></span>
 			        		</div>
 			        		<div class="text">
-				            <p><span>Email:</span> <a href="mailto:tradespotphp@gmail.com">tradespotphp@gmail.com</a></p>
+				            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@tradespot.com</a></p>
 				          </div>
 			          </div>   
 							</div>

@@ -16,7 +16,7 @@
         </div>
       </div>
       <a href="#">Services</a>
-      <a href="#">Contact</a>
+      <a href="contact.php">Contact</a>
     </div>
     <div class="content">
       <h1>Content</h1>
