@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Projekti Ueb2</title>
   <link rel="stylesheet" href="css/hp.css">
@@ -67,7 +66,6 @@
       <h3 id="modal_message" style="color: #f00;"></h3>
     </div>
   </div>
-
   <script src="openModal.js"></script>
 
   <div class="navbar">
@@ -129,13 +127,11 @@
         </script>';
       }
     }
-
     mysqli_close($conn);
     ?> <div class="form-box">
       <div class="form">
         <form class="login-form" action="login.php" method="post">
           <h1 id="login-txt">Login</h1>
-
           <label id="u_or_e" for="username_or_email">Username</label>
           <input type="text" id="usernamebox" name="username_or_email">
           <label id="password" for="password">Password</label>

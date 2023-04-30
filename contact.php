@@ -20,6 +20,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $emailErr = "Invalid email format";
         }
     }
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -106,9 +108,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			        			<span class="fa fa-paper-plane"></span>
 			        		</div>
 			        		<div class="text">
-				            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@tradespot.com</a></p>
+				            <p><span>Email:</span> <a href="mailto:tradespotphp@gmail.com">tradespotphp@gmail.com</a></p>
 				          </div>
-			          </div>
+			          </div>   
 							</div>
 							<div class="col-md-3">
 								<div class="dbox w-100 text-center">

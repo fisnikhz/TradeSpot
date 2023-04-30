@@ -6,8 +6,8 @@
   <link rel="stylesheet" href="css/hp.css">
   <link rel="stylesheet" href="css/profile.css">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
   <script>
+    
     function showProducts() {
       $('#products').css("display", "block");
       $('#hmp').css("display", "block");
@@ -17,8 +17,6 @@
     function hideProducts() {
       $('#products').css("display", "none");
       $('#hmp').css("display", "none");
-
-
     }
   </script>
   <style>

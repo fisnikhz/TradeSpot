@@ -18,4 +18,5 @@ If you are not registered, please don't try anymore!<br>Thank you!</h3>
  <br /><a href='javascript:history.go(-1)' style='margin-left:750px;color:red;font-weight:bold;'>Go Back</a></body>
 </html>";
    }
+}
 ?>

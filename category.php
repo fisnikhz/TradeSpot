@@ -14,7 +14,8 @@
         if (inputVal.length) {
           $.get("search.php", {
             term: inputVal
-          }).done(function(data) {
+          }).done(function(data) 
+          {
             // Display the returned data in browser
             resultDropdown.html(data);
             $('#no-search').css("display", "none");
