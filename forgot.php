@@ -10,8 +10,6 @@
    if (!$conn) {
      die("Connection failed: " . mysqli_connect_error());
    }
-
-?>
    
    if(isset($_POST["email"]) && (!empty($_POST["email"]))){
    $email = $_POST["email"];
@@ -131,4 +129,4 @@
             <p>&nbsp;</p>
          </div>
       </div>
-      <?php ?>
+      <?php } ?>

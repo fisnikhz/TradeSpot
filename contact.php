@@ -21,7 +21,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -155,7 +154,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			        			<span class="fa fa-paper-plane"></span>
 			        		</div>
 			        		<div class="text">
-				            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@tradespot.com</a></p>
+				            <p><span>Email:</span> <a href="mailto:info@yoursite.com">tradespotphp@gmail.com</a></p>
 				          </div>
 			          </div>   
 							</div>
