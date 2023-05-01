@@ -172,6 +172,63 @@
         #prodname {
             text-align: center;
         }
+
+        /* Center the content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Style the form inputs */
+        input[type=text],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        /* Style the label */
+        label {
+            font-weight: bold;
+        }
+
+        /* Style the image container */
+        .img-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Style the image */
+        .img-container img {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Style the delete checkbox */
+        .img-container input[type=checkbox] {
+            margin-right: 10px;
+        }
+
+        /* Style the submit button */
+        input[type=submit] {
+            background-color: #333;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* On hover */
+        input[type=submit]:hover {
+            background-color: #fff;
+             color: black;
+        }
     </style>
 
 </head>
