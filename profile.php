@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="css/profile.css">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script>
-    
     function showProducts() {
       $('#products').css("display", "block");
       $('#hmp').css("display", "block");
@@ -20,64 +19,87 @@
     }
   </script>
   <style>
+    
+
     .product-container {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
-      margin: 0 auto;
-      width: 80%;
+      justify-content: center;
+      align-items: center;
     }
 
+
+    /* Style for product cards */
     .product-card {
-      background-color: #f5f5f5;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      display: flex;
-      margin: 1rem;
-      padding: 1rem;
-      width: 45%;
+      display: inline-block;
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      width: 300px;
+      height: 400px;
+      text-align: center;
     }
 
+    /* Style for product images */
     .product-image {
-      height: 10rem;
-      margin-right: 1rem;
-      width: 10rem;
+      max-width: 100%;
+      max-height: 200px;
+      margin-bottom: 20px;
     }
 
+    /* Style for product details */
     .product-details {
+      margin-top: 20px;
+    }
+
+    /* Style for product name */
+    .product-details h4 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    /* Style for product price */
+    .product-price {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    /* Style for product buttons */
+    .product-buttons {
       display: flex;
-      flex-direction: column;
       justify-content: space-between;
     }
 
-    .product-details h4 {
-      margin: 0;
-    }
-
-    .product-price {
-      font-weight: bold;
-      margin-top: 1rem;
-    }
-
-    .product-buttons {
-      display: contents;
-      /* justify-content: space-between; */
-      margin-top: 1rem;
-      width: 100%;
-    }
-
-    .button {
-      border: none;
-      color: #fff;
-      cursor: pointer;
-      padding: 0.75rem 1rem;
-    }
-
+    /* Style for edit button */
     .edit-button {
-      background-color: #4caf50;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
     }
 
+    .edit-button:hover {
+      background-color: #0062cc;
+    }
+
+    /* Style for mark as sold button */
     .sold-button {
-      background-color: #f44336;
+      background-color: #dc3545;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .sold-button:hover {
+      background-color: #c82333;
     }
   </style>
 </head>

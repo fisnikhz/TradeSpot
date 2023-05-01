@@ -227,7 +227,7 @@
         /* On hover */
         input[type=submit]:hover {
             background-color: #fff;
-             color: black;
+            color: black;
         }
     </style>
 
@@ -360,11 +360,12 @@
 
             <label>Images:</label><br />
             <?php while ($image = mysqli_fetch_assoc($images_result)) { ?>
-                <img src="<?php echo $image['path']; ?>" height="100" /><br />
-                <input type="checkbox" name="delete_image" value="<?php echo $image['id']; ?>" /> Delete<br />
+                <img src="<?php echo $image['pimage']; ?>" height="100"><br>
+                <input type="checkbox" name="delete_image" value="<?php echo $image['id']; ?>"> Delete<br>
             <?php } ?>
 
-            <br /><br />
+
+            <br><br>
             <input type="submit" name="submit" value="Save Changes" />
         </form>
 
