@@ -59,7 +59,7 @@ form.three li{
 margin-top: 5em;
 }
 
-input[type="email"] {
+input[type="email"], input[type="password"] {
 	width: 60%;
 	padding: 0.4em 4em 0.4em 0.5em;
 	color: #858282;

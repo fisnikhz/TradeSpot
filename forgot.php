@@ -96,9 +96,8 @@
       <!-- <link rel="stylesheet" href="css/signup.css"> -->
       <link rel="stylesheet" href="css/hp.css">
       <link href="css/forgot.css" rel='stylesheet' type='text/css' />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Login , registration, forgot password "./>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link href='http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic' rel='stylesheet' type='text/css'>
    </head>
    <body>

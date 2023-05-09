@@ -33,7 +33,7 @@ else{
   <html manifest="cache.appache">
    <head>
       <title>Update password</title>
-      <link rel="stylesheet" href="css/signup.css">
+      <link rel="stylesheet" href="css/forgot.css">
       <link rel="stylesheet" href="css/hp.css">
    </head>
    <body>
@@ -46,21 +46,28 @@ else{
          <a href="#">Contact</a>
       </div>
       <div class="content">
-         <div class="form-box">
-  <form method="post" action="" name="update">
-  <input type="hidden" name="action" value="update" />
-  <br /><br />
-  <label style="color:black;"><strong>Enter New Password:</strong></label><br />
-  <input type="password" name="pass1" maxlength="15" required id="button" />
-  <br /><br />
-  <label style="color:black;"><strong>Re-Enter the new password:</strong></label><br />
-  <input type="password" name="pass2" maxlength="15" required id="button"/>
-  <br /><br />
-  <input type="hidden" name="email" value="<?php echo $email;?>"/>
-  <div class="signup-button">
-    <input type="submit" value="Reset Password" id="butto" />
-  </div>
-  </form></div></div>
+        <div class="login-03">
+          <div class="three-login  hvr-float-shadow">
+            <div class="three-login-head">
+              <img src="images/top-key.png" alt=""/>
+            </div>
+            <br />
+            <form method="post" action="" name="update">
+              <input type="hidden" name="action" value="update" />
+              <label style="color:black;"><strong>Enter the new password:</strong></label><br />
+              <input type="password" name="pass1" maxlength="15" required id="button" />
+              <br /><br />
+              <label style="color:black;"><strong>Re-enter the new password:</strong></label><br />
+              <input type="password" name="pass2" maxlength="15" required id="button"/>
+              <br />
+              <input type="hidden" name="email" value="<?php echo $email;?>"/>
+              <div class="submit three">
+                <input type="submit"  value="Reset Password" >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
 <?php
 }
 else{
@@ -105,7 +112,7 @@ WHERE `email`='".$email."';"
  
 mysqli_query($conn,"DELETE FROM `temp_reseto` WHERE `email`='".$email."';");
  
-header("Location:login1.php");
+header("Location:login.php");
    } 
 }
 ?>
