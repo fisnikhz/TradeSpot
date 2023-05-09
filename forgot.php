@@ -93,8 +93,13 @@
 <html manifest="cache.appache">
    <head>
       <title>Update password</title>
-      <link rel="stylesheet" href="css/signup.css">
+      <!-- <link rel="stylesheet" href="css/signup.css"> -->
       <link rel="stylesheet" href="css/hp.css">
+      <link href="css/forgot.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Login , registration, forgot password "./>
+		<link href='http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic' rel='stylesheet' type='text/css'>
    </head>
    <body>
       <div class="navbar">
@@ -106,19 +111,23 @@
          <a href="#">Contact</a>
       </div>
       <div class="content">
-         <div class="form-box">
-            <form method="post" action="" name="reset" id="registration">
-               <br /><br />
-               <label style="color:black;font-size:20px;"><strong>Enter Your Email Address:</strong></label><br /><br />
-               <input type="email" name="email" placeholder="  username@email.com" style="width:200px; height:30px; border-radius: 18px" />
-               <br /><br />
-               <div class="signup-button">
-                  <input type="submit" value="Reset Password"/>
+         <div class="login-03">
+            <div class="three-login  hvr-float-shadow">
+               <div class="three-login-head">
+                     <img src="images/top-key.png" alt=""/>
+                     <h2 style="color:white;">Account Reset</h2>
+                     <lable></lable>
                </div>
-            </form>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
+               <form method="post" action="" name="reset">
+                  <h5>Did you forget your password?</h5>
+                  <p>To reset your account password, enter the
+                     email address and we will send you instructions.</p>
+                     <input type="email" name="email" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-mail';}" >
+                  <div class="submit three">
+                     <input type="submit"  value="Reset Password" >
+                  </div>
+               </form>
+            </div>
          </div>
       </div>
       <?php } ?>

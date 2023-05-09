@@ -1,0 +1,92 @@
+.three-login-head{
+	background: #333;
+	padding: 1em 1em;
+	text-align:center;
+	position: relative;
+}
+.three-login-head h3 {
+font-size: 2em;
+color: #fff;
+font-weight: 500;
+text-transform: uppercase;
+}
+.three-login-head lable{
+	/* background: url('../images/tip3.png') no-repeat 0px 0px; */
+	width: 30px;
+	height: 13px;
+	position: absolute;
+	bottom: -11px;
+	left: 203px;
+	display: inline-block;
+}
+.three-login h5,.three-login h5 a{
+	color: #848484;
+	font-size: 16px;
+	text-align: left;
+}
+.three-login h5 a:hover{
+	text-decoration: underline;
+}
+.three-login p{
+	color: #848484;
+	font-size: 16px;
+	line-height:20px;
+	padding: 10px 0 20px 0;
+	text-align: left;
+}
+.three-login{
+width:28%;
+margin:5% auto;
+background: #fff;
+text-align: center;
+}
+.three-login-head h1 {
+font-size: 2em;
+color: #fff;
+font-weight:500;
+}
+form.three {
+	padding: 12% 9%;
+}
+form.three li{
+	border:none;
+	list-style:none;
+	margin-bottom:25px;
+	width:100%;
+	background:#dfdfdf;
+}
+.login-03 {
+margin-top: 5em;
+}
+
+input[type="email"] {
+	width: 60%;
+	padding: 0.4em 4em 0.4em 0.5em;
+	color: #858282;
+	font-size: 17px;
+	/* outline: none; */
+	background: none;
+	font-weight: 500;
+	/* border: none;  */
+    border: 2px solid #aaa3a3;
+    border-radius: 10px;
+	}
+	.submit.three{
+		border: none;
+		padding: 8px 0 13px 0;
+	}
+.submit.three input[type="submit"]{
+	font-size: 20px;
+	font-weight: 400;
+	color: #fff;
+	cursor: pointer;
+	/* outline: none; */
+	padding: 13px 10px;
+	width: 100%;
+	/* border: none; */
+	background: #333;
+    margin-top: 1em;
+}
+.submit.three input[type="submit"]:hover{
+	background:#515150;
+}
