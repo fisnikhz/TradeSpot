@@ -72,28 +72,30 @@
 
     <script src="openModal.js"></script>
 
-    <div class="navbar">
+    <!-- <div class="navbar">
         <h1 class="logo">TradeSpot</h1>
         <a href="homepage.php">Home</a>
         <a href="profile.php">Profile</a>
         <a href="#">About</a>
         <a href="#">Services</a>
         <a href="#">Contact</a>
-    </div>
-    <div class="content">
+    </div> -->
+    <!-- <div class="content"> -->
         <?php
         // establish database connection
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "ueb2";
+        // $servername = "localhost";
+        // $username = "root";
+        // $password = "";
+        // $dbname = "ueb2";
 
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        // $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+        include("sql/connection.php");
 
         // check connection
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
+        // if (!$conn) {
+        //     die("Connection failed: " . mysqli_connect_error());
+        // }
 
         // handle sign up form submission
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -254,7 +256,7 @@
             </form>
 
         </div>
-    </div>
+    <!-- </div> -->
 </body>
 
 </html>

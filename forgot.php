@@ -101,15 +101,15 @@
 		<link href='http://fonts.googleapis.com/css?family=Cabin:400,500,600,700,400italic,500italic,600italic,700italic' rel='stylesheet' type='text/css'>
    </head>
    <body>
-      <div class="navbar">
+      <!-- <div class="navbar">
          <h1 class="logo">TradeSpot</h1>
          <a href="homepage.php">Home</a>
          <a href="profile.php">Profile</a>
          <a href="#">About</a>
          <a href="#">Services</a>
          <a href="#">Contact</a>
-      </div>
-      <div class="content">
+      </div> -->
+      <!-- <div class="content"> -->
          <div class="login-03">
             <div class="three-login  hvr-float-shadow">
                <div class="three-login-head">
@@ -128,5 +128,5 @@
                </form>
             </div>
          </div>
-      </div>
+      <!-- </div> -->
       <?php } ?>

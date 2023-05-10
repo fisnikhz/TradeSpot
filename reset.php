@@ -37,15 +37,15 @@ else{
       <link rel="stylesheet" href="css/hp.css">
    </head>
    <body>
-      <div class="navbar">
+      <!-- <div class="navbar">
          <h1 class="logo">TradeSpot</h1>
          <a href="homepage.php">Home</a>
          <a href="profile.php">Profile</a>
          <a href="#">About</a>
          <a href="#">Services</a>
          <a href="#">Contact</a>
-      </div>
-      <div class="content">
+      </div> -->
+      <!-- <div class="content"> -->
         <div class="login-03">
           <div class="three-login  hvr-float-shadow">
             <div class="three-login-head">
@@ -67,7 +67,7 @@ else{
             </form>
           </div>
         </div>
-      </div>
+      <!-- </div> -->
 <?php
 }
 else{

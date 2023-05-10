@@ -5,21 +5,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $nameErr = $emailErr = "";
 
-    if(empty($name)) {
+    if(empty($name) && empty($email)) {
         $nameErr = "Name is required";
-    } else {
-        if(!preg_match("/^[a-zA-Z ]*$/", $name)) {
-            $nameErr = "Only letters and white space allowed";
-        }
+		$emailErr = "Email is required";
+    } 
+	
+	else if(!preg_match("/^[a-zA-Z ]*$/", $name)) {
+        $nameErr = "Only letters and white space allowed";
     }
-
-    if(empty($email)) {
-        $emailErr = "Email is required";
-    } else {
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "Invalid email format";
-        }
+	
+	else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Invalid email format";
     }
+	
+	else{
+		header('Location: email.php');
+	}
 }
 ?>
 <!doctype html>
@@ -98,18 +99,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 							<div class="col-md-7">
 								<div class="contact-wrap w-100 p-md-5 p-4">
 									<h3 class="mb-4">Contact Us</h3>
-									<form method="POST" action="email.php" id="contactForm" name="contactForm" class="contactForm">
+									<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="contactForm" name="contactForm" class="contactForm">
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="label" for="name">Full Name</label>
 													<input type="name" class="form-control" name="name" id="name" placeholder="Name">
+													<p style="color:red"><?php echo $nameErr; ?></p>
 												</div>
 											</div>
 											<div class="col-md-6"> 
 												<div class="form-group">
 													<label class="label" for="email">Email Address</label>
 													<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+													<p style="color:red"><?php echo $emailErr; ?></p>
 												</div>
 											</div>
 											<div class="col-md-12">

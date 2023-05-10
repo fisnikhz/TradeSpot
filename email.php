@@ -6,7 +6,7 @@
 <body>
 <?php
 
-$to_mail=$_POST["email"];
+// $to_mail=$_POST["email"];
 $subject="Newsletter from TradeSpot";
 $body="
 <div style='background-color: #f2f2f2; padding: 20px;'>

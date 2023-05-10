@@ -68,28 +68,29 @@
   </div>
   <script src="openModal.js"></script>
 
-  <div class="navbar">
+  <!-- <div class="navbar">
     <h1 class="logo">TradeSpot</h1>
     <a href="homepage.php">Home</a>
     <a href="profile.php">Profile</a>
     <a href="#">About</a>
     <a href="#">Services</a>
     <a href="#">Contact</a>
-  </div>
-  <div class="content">
+  </div> -->
+  <!-- <div class="content"> -->
     <?php
     // establish database connection
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "ueb2";
+    // $servername = "localhost";
+    // $username = "root";
+    // $password = "";
+    // $dbname = "ueb2";
 
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    // $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-    // check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
+    // // check connection
+    // if (!$conn) {
+    //   die("Connection failed: " . mysqli_connect_error());
+    // }
+    include("sql/connection.php");
 
     // handle login form submission
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
@@ -105,6 +106,10 @@
           // password is correct, start session and redirect to homepage or dashboard depending on user role
           session_start();
           $_SESSION['user_id'] = $row['id'];
+          if(!empty($_REQUEST["remember"])) {
+            setcookie ("user_name",$_REQUEST["email"],time()+ (10 * 365 * 24 * 60 * 60));
+            setcookie ("user_password",$_REQUEST["password"],time()+ (10 * 365 * 24 * 60 * 60));
+          }
           if ($row['email'] == 'admin@admin.com' && $password == 'admin' || ($row['username'] == 'admin')) {
             header("Location: dashboard.php");
           } else {
@@ -133,9 +138,10 @@
         <form class="login-form" action="login.php" method="post">
           <h1 id="login-txt">Login</h1>
           <label id="u_or_e" for="username_or_email">Username</label>
-          <input type="text" id="usernamebox" name="username_or_email">
+          <input type="text" id="usernamebox" name="username_or_email" value="<?php if(isset($_COOKIE["user_name"])) { echo $_COOKIE["user_name"]; }?>">
           <label id="password" for="password">Password</label>
-          <input type="password" id="passwordbox" name="password">
+          <input type="password" id="passwordbox" name="password" value="<?php if(isset($_COOKIE["user_password"])) { echo $_COOKIE["user_password"]; } ?>">
+          <input type="checkbox" name="remember" value="1" id="remember" <?php if(isset($_COOKIE["user_name"])) { ?> checked <?php } ?> />Remember Me<br>
           <p id="signup-link">Dont have a account, <a href="signup.php">sign up.</a></p>
           <input type="submit" name="login" value="Login">
           <p id="signup-link">Forgot your password? <a href="forgot.php">Reset it now!</a></p>
@@ -143,7 +149,7 @@
       </div>
     </div>
     </h1>
-  </div>
+  <!-- </div> -->
 </body>
 
 </html>
