@@ -3,60 +3,8 @@
 <head>
   <title>Projekti Ueb2</title>
   <link rel="stylesheet" href="css/hp.css">
-  <link rel="stylesheet" href="css/login.css">
-  <style>
-    /* The Modal (background) */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      margin-left: 80px;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.4);
-    }
+  <link rel="stylesheet" href="css/signin-up.css">
 
-    /* Modal Content/Box */
-    .modal-content {
-      background-color: #fefefe;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 250px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    /* The Close Button */
-    .close {
-      color: #333;
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 28px;
-      font-weight: bold;
-      text-align: center;
-      line-height: 1;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background-color: black;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .close:hover,
-    .close:focus {
-      color: #fff;
-      text-decoration: none;
-    }
-  </style>
 </head>
 
 <body>
@@ -90,7 +38,7 @@
     // if (!$conn) {
     //   die("Connection failed: " . mysqli_connect_error());
     // }
-    include("sql/connection.php");
+    // include("sql/connection.php");
 
     // handle login form submission
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
@@ -107,7 +55,7 @@
           session_start();
           $_SESSION['user_id'] = $row['id'];
           if(!empty($_REQUEST["remember"])) {
-            setcookie ("user_name",$_REQUEST["email"],time()+ (10 * 365 * 24 * 60 * 60));
+            setcookie ("user_name",$_REQUEST["username_or_email"],time()+ (10 * 365 * 24 * 60 * 60));
             setcookie ("user_password",$_REQUEST["password"],time()+ (10 * 365 * 24 * 60 * 60));
           }
           if ($row['email'] == 'admin@admin.com' && $password == 'admin' || ($row['username'] == 'admin')) {
@@ -133,23 +81,28 @@
       }
     }
     mysqli_close($conn);
-    ?> <div class="form-box">
-      <div class="form">
-        <form class="login-form" action="login.php" method="post">
-          <h1 id="login-txt">Login</h1>
+    ?> 
+ 
+    <div class="center">
+      <h1>Login</h1>
+      <form method="post" action="login.php" method="post">
+        <div class="txt_field">
+          <input type="text" required name="username_or_email" value="<?php if(isset($_COOKIE["user_name"])) { echo $_COOKIE["user_name"]; }?>">
+          <span></span>
           <label id="u_or_e" for="username_or_email">Username</label>
-          <input type="text" id="usernamebox" name="username_or_email" value="<?php if(isset($_COOKIE["user_name"])) { echo $_COOKIE["user_name"]; }?>">
-          <label id="password" for="password">Password</label>
-          <input type="password" id="passwordbox" name="password" value="<?php if(isset($_COOKIE["user_password"])) { echo $_COOKIE["user_password"]; } ?>">
-          <input type="checkbox" name="remember" value="1" id="remember" <?php if(isset($_COOKIE["user_name"])) { ?> checked <?php } ?> />Remember Me<br>
-          <p id="signup-link">Dont have a account, <a href="signup.php">sign up.</a></p>
-          <input type="submit" name="login" value="Login">
-          <p id="signup-link">Forgot your password? <a href="forgot.php">Reset it now!</a></p>
-        </form>
-      </div>
-    </div>
-    </h1>
-  <!-- </div> -->
+        </div>
+        <div class="txt_field">
+          <input type="password" required name="password" value="<?php if(isset($_COOKIE["user_password"])) { echo $_COOKIE["user_password"]; } ?>">
+          <span></span>
+          <label>Password</label>
+        </div>
+        <input type="checkbox" name="remember" value="1" id="remember" <?php if(isset($_COOKIE["user_name"])) { ?> checked <?php } ?> /><label style="color: #adadad;">  Remember Me</label>  <br><br>
+        <div class="pass">Forgot your password? <a href="forgot.php">Reset it now!</a></div>
+        <input type="submit" value="Login" name="login">
+        <div class="signup_link">
+          Not a member? <a href="signup.php">Sign Up</a>
+        </div>
+      </form>
+  </div>
 </body>
-
 </html>

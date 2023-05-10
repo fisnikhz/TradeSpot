@@ -4,73 +4,26 @@
 <head>
     <title>SignUp</title>
     <link rel="stylesheet" href="css/hp.css">
-    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/signin-up.css">
     <style>
-        /* The Modal (background) */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            margin-left: 80px;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        /* Modal Content/Box */
-        .modal-content {
-            background-color: #fefefe;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 300px;
-            height: 50px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* The Close Button */
-        .close {
-            color: #333;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 28px;
-            font-weight: bold;
-            text-align: center;
-            line-height: 1;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: black;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #fff;
-            text-decoration: none;
+        ::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        background-color: transparent;
         }
     </style>
 </head>
 
 <body>
 
-    <div id="myModal" class="modal">
+    <!-- <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h3 id="modal_message" style="color: #f00;"></h3>
         </div>
     </div>
 
-    <script src="openModal.js"></script>
+    <script src="openModal.js"></script> -->
 
     <!-- <div class="navbar">
         <h1 class="logo">TradeSpot</h1>
@@ -90,7 +43,7 @@
 
         // $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-        include("sql/connection.php");
+        // include("sql/connection.php");
 
         // check connection
         // if (!$conn) {
@@ -174,88 +127,83 @@
 
         mysqli_close($conn);
         ?>
-        <div class="form-box">
-            <img id="form-background" src="Images\home-nike.png" alt="">
+    <div class="center" style="height: 100%;overflow:auto; ">
 
-            <form class="form" action="signup.php" method="post">
-                <div style="width:180px;">
-                    <h1>Sign up</h1>
-                </div>
+        <h1>Sign Up</h1>
 
-                <div style="width:180px;">
-                    <label style="font-size: 12px;" for="name">Name:</label><br>
-                    <input type="text" id="name" name="name">
-                </div>
+        <form method="post" action="signup.php" method="post">
 
-                <div style="width:180px;">
-                    <label style="font-size: 12px;" for="lastname">Lastname:</label><br>
-                    <input type="text" id="lastname" name="lastname">
-                </div>
-
-                <div style="width:180px;">
-                    <label style="font-size: 12px;" for="username">Username:</label><br>
-                    <input type="text" id="username" name="username">
-                </div>
-
-                <div style="width:180px;">
-                    <label style="font-size: 12px;" for="phone">Phone Number:</label><br>
-                    <input type="text" id="phone" name="phone">
-                </div>
-
-                <div style="width:180px;">
-                    <label style="font-size: 12px;" for="address">Address:</label><br>
-                    <input type="text" id="address" name="address">
-                </div>
-
-                <div style="width:180px;">
-                    <label style="font-size: 12px;" for="City">City:</label><br>
-                    <select id="city" name="City">
-                        <option value="none">none</option>
-                        <option value="Decan">Decan</option>
-                        <option value="Dragash">Dragash</option>
-                        <option value="Ferizaj">Ferizaj</option>
-                        <option value="Gjakova">Gjakova</option>
-                        <option value="Gjilan">Gjilan</option>
-                        <option value="Istog">Istog</option>
-                        <option value="Junik">Junik</option>
-                        <option value="Kamenic">Kamenic</option>
-                        <option value="Kline">Kline</option>
-                        <option value="Fushe-Kosove">Fushe-Kosove</option>
-                        <option value="Lipjan">Lipjan</option>
-                        <option value="Malisheva">Malisheva</option>
-                        <option value="Mitrovic">Mitrovic</option>
-                        <option value="Obilic">Obilic</option>
-                        <option value="Peja">Peja</option>
-                        <option value="Prizren">Prizren</option>
-                        <option value="Rahovec">Rahovec</option>
-                        <option value="Shtime">Shtime</option>
-                        <option value="Skenderaj">Skenderaj</option>
-                        <option value="Suhareke">Suhareke</option>
-                        <option value="Viti">Viti</option>
-                        <option value="Vushtri">Vushtri</option>
-
-                    </select>
-                </div>
-
-                <div style="width:180px;">
-                    <label style="font-size: 12px;" for="email">Email:</label><br>
-                    <input type="text" id="email" name="email">
-                </div>
-
-                <div style="width:180px;">
-                    <label style="font-size: 12px;" for="password">Password:</label><br>
-                    <input type="password" id="password" name="password">
-                </div>
-
-                <p id="signup-link">You alredy have a account, <a href="login.php">Log in.</a></p>
-
-                <div class="signup-button">
-                    <input type="submit" value="Sign Up">
-                </div>
-
-            </form>
-
+        <div class="txt_field">
+            <input type="text" required name="name">
+            <span></span>
+            <label>Name</label>
         </div>
+
+        <div class="txt_field">
+            <input type="text" required name="lastname">
+            <label>Lastname</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="text" required name="username">
+            <label>Username</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="text" required name="phone">
+            <label>Phone number</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="text" required name="address">
+            <label>Address</label>
+        </div>
+
+        <div>
+            <label style="color: #adadad">City</label><br>
+            <select id="city" name="City" style="padding: 3px;color:color: #adadad;width:320px">
+                <option value="none">none</option>
+                <option value="Decan">Deçan</option>
+                <option value="Dragash">Dragash</option>
+                <option value="Ferizaj">Ferizaj</option>
+                <option value="Gjakova">Gjakovë</option>
+                <option value="Gjilan">Gjilan</option>
+                <option value="Istog">Istog</option>
+                <option value="Junik">Junik</option>
+                <option value="Kamenic">Kamenicë</option>
+                <option value="Kline">Klinë</option>
+                <option value="Fushe-Kosove">Fushë-Kosovë</option>
+                <option value="Lipjan">Lipjan</option>
+                <option value="Malisheva">Malishevë</option>
+                <option value="Mitrovic">Mitrovicë</option>
+                <option value="Obilic">Obiliq</option>
+                <option value="Peja">Pejë</option>
+                <option value="Prizren">Prizren</option>
+                <option value="Rahovec">Rahovec</option>
+                <option value="Shtime">Shtime</option>
+                <option value="Skenderaj">Skënderaj</option>
+                <option value="Suhareke">Suharekë</option>
+                <option value="Viti">Viti</option>
+                <option value="Vushtri">Vushtri</option>
+            </select>
+        </div>
+
+        <div class="txt_field">
+            <input type="email" required name="email">
+            <label>Email</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="password" required name="password">
+            <label>Password</label>
+        </div>
+
+        <input type="submit" value="Sign Up" name="sign-up">
+        <div class="signup_link">
+            If you already have an account, <a href="login.php">Login</a>
+        </div>
+        </form>
+    </div>
     <!-- </div> -->
 </body>
 
