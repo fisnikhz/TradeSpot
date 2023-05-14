@@ -38,7 +38,7 @@
     // if (!$conn) {
     //   die("Connection failed: " . mysqli_connect_error());
     // }
-    // include("sql/connection.php");
+    include("sql/connection.php");
 
     // handle login form submission
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {

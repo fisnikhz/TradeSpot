@@ -54,77 +54,68 @@
       <a href="#">Users</a>
       <div class="dropdown-content">
         <a href="#">Add User</a>
-        <a href="#">Delete User</a>
-      </div>
+<td><a href='dashboard.php?delete=" . $row["id"] . "'>Delete</a></td>      </div>
     </div>
     <a href="#">Services</a>
     <a href="contact.php">Contact</a>
   </div>
   <div class="content">
+  <?php
+  // establish database connection
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "ueb2";
 
-    <?php
-    // establish database connection
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "ueb2";
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+  // check connection
+  if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+  }
 
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-    // check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-    // handle user form submission
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_user'])) {
-      $name = mysqli_real_escape_string($conn, $_POST['name']);
-      $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
-      $username = mysqli_real_escape_string($conn, $_POST['username']);
-      $phone = mysqli_real_escape_string($conn, $_POST['phone']);
-      $address = mysqli_real_escape_string($conn, $_POST['address']);
-      $City = mysqli_real_escape_string($conn, $_POST['City']);
-      $email = mysqli_real_escape_string($conn, $_POST['email']);
-      $password = mysqli_real_escape_string($conn, $_POST['password']);
+  // handle user deletion
+  if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
+    $user_id = $_GET['delete'];
 
-      $sql = "INSERT INTO users (name, lastname, username, phone, address, City, email, password) 
-            VALUES ('$name', '$lastname', '$username', '$phone', '$address', '$City', '$email', '$password')";
-      if (mysqli_query($conn, $sql)) {
-        echo "User added successfully";
-      } else {
-        echo "Error adding user: " . mysqli_error($conn);
-      }
-    }
-
-    // handle user deletion
-    if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
-      $user_id = $_GET['delete'];
-
-      $sql = "DELETE FROM users WHERE id=$user_id";
-      if (mysqli_query($conn, $sql)) {
-        echo "User deleted successfully";
-      } else {
-        echo "Error deleting user: " . mysqli_error($conn);
-      }
-    }
-    // create an array in php
-    // retrieve all users
-    $sql = "SELECT * FROM users";
-    $result = mysqli_query($conn, $sql);
-
-    // display users in a table
-    if (mysqli_num_rows($result) > 0) {
-      echo "<table>";
-      echo "<tr><th>ID</th><th>Name</th><th>Lastname</th><th>Username</th><th>Phone</th><th>Address</th><th>City</th><th>Email</th><th>Password</th><th>Action</th></tr>";
-      while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><td>" . $row["id"] . "</td><td>" . $row["name"] . "</td><td>" . $row["lastname"] . "</td><td>" . $row["username"] . "</td><td>" . $row["phone"] . "</td><td>" . $row["address"] . "</td><td>" . $row["City"] . "</td><td>" . $row["email"] . "</td><td>" . $row["password"] . "</td><td><a href='dashboard.php?delete=" . $row["id"] . "'>Delete</a></td></tr>";
-      }
-      echo "</table>";
+    $sql = "DELETE FROM users WHERE id=$user_id";
+    if (mysqli_query($conn, $sql)) {
+      echo "User deleted successfully";
     } else {
-      echo "No users found";
+      echo "Error deleting user: " . mysqli_error($conn);
     }
+  }
 
-    mysqli_close($conn);
-    ?>
-  </div>
+  // retrieve all users
+  $sql = "SELECT * FROM users";
+  $result = mysqli_query($conn, $sql);
+
+  // display users in a table
+  if (mysqli_num_rows($result) > 0) {
+    echo "<table>";
+    echo "<tr><th>ID</th><th>Name</th><th>Lastname</th><th>Username</th><th>Phone</th><th>Address</th><th>City</th><th>Email</th><th>Password</th><th>Action</th></tr>";
+    while ($row = mysqli_fetch_assoc($result)) {
+      echo "<tr>";
+      echo "<td>" . $row["id"] . "</td>";
+      echo "<td>" . $row["name"] . "</td>";
+      echo "<td>" . $row["lastname"] . "</td>";
+      echo "<td>" . $row["username"] . "</td>";
+      echo "<td>" . $row["phone"] . "</td>";
+      echo "<td>" . $row["address"] . "</td>";
+      echo "<td>" . $row["City"] . "</td>";
+      echo "<td>" . $row["email"] . "</td>";
+      echo "<td>" . $row["password"] . "</td>";
+      echo "<td><a href='view-users.php?delete=" . $row["id"] . "'>Delete</a></td>";
+      echo "</tr>";
+    }
+    echo "</table>";
+  } else {
+    echo "No users found";
+  }
+
+  mysqli_close($conn);
+  ?>
+</div>
 </body>
 
 </html>
+
