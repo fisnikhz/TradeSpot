@@ -4,7 +4,7 @@
 <head>
     <title>Projekti Ueb2</title>
     <link rel="stylesheet" href="css/hp.css">
-    <link rel="stylesheet" href="css/update-profile.css">
+    <link rel="stylesheet" href="css/signin-up.css">
   
     <style>
 
@@ -23,7 +23,7 @@
     </div>
     <div class="content">
         <?php
-        // establish database connection
+        // establish databa se connection
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -86,7 +86,7 @@
         $row = mysqli_fetch_assoc($result);
         ?>
 
-        <div class="form-box">
+        <!-- <div class="form-box">
 
             <form method="post" class="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                 <div style="width:180px;">
@@ -134,14 +134,64 @@
                         <input type="password" name="password" id="password" required>
                     </div>
 
-
                     <div class="update-button">
                         <input type="submit" name="update" value="Update">
                     </div>
 
             </form>
 
+        </div> -->
+
+        <div class="center">
+
+        <h1>Update information</h1>
+
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+
+        <div class="txt_field">
+            <input type="text" required name="name" id="name" value="<?php echo $row['name']; ?>">
+            <span></span>
+            <label>Name</label>
         </div>
+
+        <div class="txt_field">
+            <input type="text" required name="lastname" id="lastname" value="<?php echo $row['lastname']; ?>">
+            <label>Lastname</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="text" required name="username" id="username" value="<?php echo $row['username']; ?>">
+            <label>Username</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="text" required name="phone" id="phone" value="<?php echo $row['phone']; ?>">
+            <label>Phone number</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="text" required name="address" id="address" value="<?php echo $row['address']; ?>">
+            <label>Address</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="text" name="City" id="city" value="<?php echo $row['City']; ?>" required>
+            <label>City</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="email" required name="email" id="email" value="<?php echo $row['email']; ?>">
+            <label>Email</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="password" required name="password" id="password">
+            <label>Password</label>
+        </div>
+
+        <input type="submit" value="Update" name="update">
+        </form>
+    </div>
 </body>
 
 </html>

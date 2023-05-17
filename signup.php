@@ -43,7 +43,7 @@
 
         // $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-        // include("sql/connection.php");
+        include("sql/connection.php");
 
         // check connection
         // if (!$conn) {
@@ -127,7 +127,7 @@
 
         mysqli_close($conn);
         ?>
-    <div class="center" style="height: 100%;overflow:auto; ">
+    <div class="center" style="height: 100%;overflow:auto;">
 
         <h1>Sign Up</h1>
 
