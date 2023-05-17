@@ -23,7 +23,7 @@ $headers[] = 'Content-type: text/html; charset=iso-8859-1';
 $headers[] = "From: Trade Spot";
 
 
-if(mail($to_mail,$subject,$body,implode("\r\n", $headers))){
+if(mail($email,$subject,$body,implode("\r\n", $headers))){
 
     echo "<h3>Thank you! Now you will receive an email.<br>You are welcome again!</h3>
     <br /><a href='javascript:history.go(-1)' style='margin-left:750px;color:red;font-weight:bold;'>Go Back</a>";
