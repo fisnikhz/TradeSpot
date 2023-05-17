@@ -58,6 +58,7 @@
     </div>
     <a href="#">Services</a>
     <a href="contact.php">Contact</a>
+    <a href = "logout.php">Sign Out</a>
   </div>
   <div class="content">
   <?php

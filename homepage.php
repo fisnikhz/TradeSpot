@@ -163,6 +163,7 @@
     <div class="search-box">
       <input type="text" autocomplete="off" placeholder="Search product..." />
       <div class="result"></div>
+      <a href = "logout.php" style="margin-left:30em;">Sign Out</a>
     </div>
 
 
