@@ -77,20 +77,21 @@ html {
 
 <div class="about-section">
   <h1>About Us Page</h1>
-  <p>Some text about who we are and what we do.</p>
-  <p>Resize the browser window to see that this page is responsive by the way.</p>
+  <p>As a large company, we sell products online.</p>
+
 </div>
 
 <h2 style="text-align:center">Our Team</h2>
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="" alt="Endrit" style="width:100%">
+      <img src=".jpg" alt="Endrit" style="width:100%">
       <div class="container">
         <h2>Endrit Gjokaj</h2>
         <p class="title">CEO & Founder</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>EndritGjokaj@gmail.com</p>
+        <p>Endrit Gjokaj is 22 years old. He is from Drenas and has a bachelor's degree in "Hasan Prishtina" University,
+             while he continued his master's studies in Vienna, Austria.</p>
+        <p>endritgjokaj@gmail.com</p>
         <p><button class="button">Contact</button></p>
       </div>
     </div>
@@ -98,12 +99,13 @@ html {
 
   <div class="column">
     <div class="card">
-      <img src="" alt="Verona" style="width:100%">
+      <img src=".jpg" alt="Verona" style="width:100%">
       <div class="container">
         <h2>Verona Kabashi</h2>
         <p class="title">CEO</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>VeronaKabashi@gmail.com</p>
+        <p>Verona Kabashi is 23 years old. She completed her studies at the bachelor's level at "Hasan Prishtina" University 
+            and continued her master's studies in Berlin, Germany. </p>
+        <p>veronakabashi@gmail.com</p>
         <p><button class="button">Contact</button></p>
       </div>
     </div>
@@ -111,12 +113,12 @@ html {
   
   <div class="column">
     <div class="card">
-      <img src="" alt="Alnita" style="width:100%">
+      <img src=".jpg" alt="Alnita" style="width:100%">
       <div class="container">
         <h2>Alnita Kabashi</h2>
         <p class="title">Art Director</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>AlnitaKabashi@gmail.com</p>
+        <p>Alnita Kabashi is 22 years old. She completed her bachelor's studies at "Hasan Prishtina" University, while she continued her master's studies in Switzerland.</p>
+        <p>alnitakabashi@gmail.com</p>
         <p><button class="button">Contact</button></p>
       </div>
     </div>
@@ -125,12 +127,12 @@ html {
 
 <div class="column">
     <div class="card">
-      <img src="" alt="Fisnik" style="width:100%">
+      <img src=".../images/psd.jpg" alt="Fisnik" style="width:100%">
       <div class="container">
         <h2>Fisnik Hazrolli</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>FisnikHazrolli@gmail.com</p>
+        <p class="title">Design</p>
+        <p>Fisnik Hazrolli is 21 years old. He completed his bachelor's studies at "Hasan Prishtina" University and continued his master's studies in Vienna, Austria together with his colleague Endrit Gjokaj.</p>
+        <p>fisnikhazrolli@gmail.com</p>
         <p><button class="button">Contact</button></p>
       </div>
     </div>
@@ -139,12 +141,12 @@ html {
 
 <div class="column">
     <div class="card">
-      <img src="" alt="Alba" style="width:100%">
+      <img src=".jpg" alt="Alba" style="width:100%">
       <div class="container">
         <h2>Alba Thaqi</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>AlbaThaqi@gmail.com</p>
+        <p class="title">Design</p>
+        <p>Alba Thaqi is 22 years old. She completed her bachelor's studies at "Hasan Prishtina" University, while she continued her master's studies in America.</p>
+        <p>albathaqi@gmail.com</p>
         <p><button class="button">Contact</button></p>
       </div>
     </div>
