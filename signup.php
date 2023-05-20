@@ -43,7 +43,7 @@
 
         // $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-        include("sql/connection.php");
+        require_once("sql/connection.php");
 
         // check connection
         // if (!$conn) {
@@ -161,7 +161,7 @@
 
         <div>
             <label style="color: #adadad">City</label><br>
-            <select id="city" name="City" style="padding: 3px;color:color: #adadad;width:320px">
+            <select id="city" name="City" style="padding: 3px;color: #adadad;width:320px">
                 <option value="none">none</option>
                 <option value="Decan">Deçan</option>
                 <option value="Dragash">Dragash</option>

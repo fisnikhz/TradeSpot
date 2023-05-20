@@ -246,18 +246,8 @@
     </div>
     <div class="content">
         <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "ueb2";
+        require_once("sql/connection.php");
 
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
         // Get the product ID from the URL parameter
         if (isset($_GET['id'])) {
             $productID = $_GET['id'];
@@ -294,7 +284,6 @@
         ?>
 
 
-
         <?php
         // Include the database connection file
 
@@ -316,11 +305,18 @@
                 $delete_image_query = "DELETE FROM images WHERE id = $image_id";
                 $delete_image_result = mysqli_query($conn, $delete_image_query);
                 // Delete image from the website
-                $image_path_query = "SELECT path FROM images WHERE id = $image_id";
+                $image_path_query = "SELECT pimage FROM images WHERE id = $image_id";
                 $image_path_result = mysqli_query($conn, $image_path_query);
                 $image_path_row = mysqli_fetch_assoc($image_path_result);
-                $image_path = $image_path_row['path'];
-                unlink($image_path);
+                $image_path_row = mysqli_fetch_assoc($image_path_result);
+                if ($image_path_row) {
+                    $image_path = $image_path_row['pimage'];
+                    unlink($image_path);
+                } else {
+                    // Handle the case where no image row was found
+                    echo "Image not found or already deleted.";
+                }
+
             }
 
             // Update the product information in the database
@@ -328,10 +324,10 @@
             $update_result = mysqli_query($conn, $update_query);
 
             // If the query is successful, redirect to the product page
-            if ($update_result) {
-                header("Location: homepage.php");
-                exit;
-            }
+            // if ($update_result) {
+            //     header("Location: homepage.php");
+            //     exit;
+            // }
         }
 
         // Get the product information from the database

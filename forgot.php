@@ -51,8 +51,8 @@
    $output='<p>Dear user,</p>';
    $output.='<p>Please click on the following link to reset your password.</p>';
    $output.='<p>-------------------------------------------------------------</p>';
-   $output.='<p><a href="reset.php?
-   key='.$key.'&email='.$email.'&action=reset" target="_blank">
+   $output.= '<p><a href="reset.php?
+   key='.$key.'&email='.$email. '&action=reset" target="_blank">
    reset.php
    ?key='.$key.'&email='.$email.'&action=reset</a></p>'; 
    $output.='<p>-------------------------------------------------------------</p>';

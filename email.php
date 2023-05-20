@@ -6,7 +6,7 @@
 <body>
 <?php
 
-$emaili=$_POST["email"];
+$email=$_POST["email"];
 $subject="Newsletter from TradeSpot";
 $body="
 <div style='background-color: #f2f2f2; padding: 20px;'>
@@ -23,7 +23,7 @@ $headers[] = 'Content-type: text/html; charset=iso-8859-1';
 $headers[] = "From: Trade Spot";
 
 
-if(mail($emaili,$subject,$body,implode("\r\n", $headers))){
+if(mail($email,$subject,$body,implode("\r\n", $headers))){
 
     echo "<h3>Thank you! Now you will receive an email.<br>You are welcome again!</h3>
     <br /><a href='javascript:history.go(-1)' style='margin-left:750px;color:red;font-weight:bold;'>Go Back</a>";
@@ -31,7 +31,7 @@ if(mail($emaili,$subject,$body,implode("\r\n", $headers))){
 
 else{
     echo "Email was not sent!";
-    //echo "Error: " . error_get_last()['message'];
+   // echo "Error: " . error_get_last()['message'];
 
 }
 

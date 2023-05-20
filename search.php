@@ -1,12 +1,7 @@
 
 <?php
 // Attempt MySQL server connection
-$link = mysqli_connect("localhost", "root", "", "ueb2");
-
-// Check connection
-if ($link === false) {
-    die("ERROR: Could not connect. " . mysqli_connect_error());
-}
+require_once("sql/connection.php");
 
 
 if (isset($_REQUEST["term"])) {
@@ -45,17 +40,13 @@ if (isset($_REQUEST["term"])) {
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo "<div class='product-card'>";
-                    if ($row['pimage'] != null) {
-                        echo "<img src='" . $row['pimage'] . "'>";
-                    }
+                    echo "<img src='" . $row['pimage'] . "'>";
                     echo "<div class='product-content'>";
                     echo "<h4>" . $row['pname'] . "</h4>";
                     echo "<p><b>" . $row['pcategory'] . "</b></p>";
                     echo "<div class='price'>" . $row['pprice'] . "</div>";
                     echo "<a href='product-details.php?id=" . $row['id'] . "' class='button'>Buy Now</a>";
                     echo "</div>";
-
-
                     echo "</div>";
                 }
             } else {

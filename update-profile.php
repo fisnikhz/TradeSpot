@@ -24,18 +24,7 @@
     <div class="content">
         <?php
         // establish databa se connection
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "ueb2";
-
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-        // check connection
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
-
+       require_once("sql/connection.php");
         // start session
         session_start();
 

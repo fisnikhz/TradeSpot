@@ -169,18 +169,8 @@
 
     <div id="no-search">
       <?php
-      $servername = "localhost";
-      $username = "root";
-      $password = "";
-      $dbname = "ueb2";
-
-      // Create connection
-      $conn = new mysqli($servername, $username, $password, $dbname);
-
-      // Check connection
-      if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-      }
+     
+     require_once("sql/connection.php");
 
       // Retrieve the products and images from the database based on the search term
       $sql = "SELECT p.*, i.pimage

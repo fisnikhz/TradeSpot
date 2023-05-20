@@ -1,11 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ueb2";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+require_once("sql/connection.php");
 
 // Check connection
 if ($conn->connect_error) {

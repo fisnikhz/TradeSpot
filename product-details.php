@@ -214,18 +214,8 @@
   </div>
   <div class="content">
     <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "ueb2";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
+    
+    require_once("sql/connection.php");
     // Get the product ID from the URL parameter
     if (isset($_GET['id'])) {
       $productID = $_GET['id'];
