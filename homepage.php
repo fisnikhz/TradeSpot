@@ -160,17 +160,60 @@
   </div>
   <div class="content">
     <!-- Add a search form to the HTML -->
+    <?php
+      //  if(isset($_SESSION['login_id'])){
+        // session_start();
+        // session_regenerate_id(true);
+        $servername = "localhost";
+      $username = "root";
+      $password = "";
+      $dbname = "ueb2";
+
+      // Create connection
+      $conn = new mysqli($servername, $username, $password, $dbname);
+
+      // Check connection
+      if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+      }
+        // $id = $_SESSION['login_id'];
+      //   if(!isset($_SESSION['login_id'])){
+      //     echo "";
+      // }
+      // $id = $_SESSION['login_id'];
+      // echo $id;
+      $get_user = mysqli_query($conn, "SELECT * FROM `google_users` WHERE `id`=1");
+      if(mysqli_num_rows($get_user) > 0){
+          $user = mysqli_fetch_assoc($get_user);
+      }
+      // }
+    ?>
     <div class="search-box">
       <input type="text" autocomplete="off" placeholder="Search product..." />
       <div class="result"></div>
       <a href = "logout.php" style="margin-left:30em;">Sign Out</a>
+      <p style="margin-left:75em;margin-top:-4.2em"><?php echo $user['name']; ?></p>
     </div>
-
 
     <div id="no-search">
       <?php
-     
-     require_once("sql/connection.php");
+      
+      if(isset($_SESSION['login_id'])){
+            session_start(); 
+      }
+
+      $servername = "localhost";
+      $username = "root";
+      $password = "";
+      $dbname = "ueb2";
+
+      // Create connection
+      $conn = new mysqli($servername, $username, $password, $dbname);
+
+      // Check connection
+      if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+      }
 
       // Retrieve the products and images from the database based on the search term
       $sql = "SELECT p.*, i.pimage
@@ -201,7 +244,6 @@
       } else {
         echo "No products found.";
       }
-
       // Close the database connection
       $conn->close();
       ?>
