@@ -79,15 +79,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	</head>
 	<body>
-	<div class="navbar">
-         <h2 class="logo">TradeSpot</h2>
-         <a href="homepage.php">Home</a>
-         <a href="profile.php">Profile</a>
-         <a href="about.php">About</a>
-         <a href="#">Services</a>
-         <a href="contact.php">Contact</a>
-		 <a href = "logout.php">Sign Out</a>
-    </div>
+	<?php include 'user_header.php'; ?>
+
 
 	<section class="ftco-section content" style="margin-left: 200px;">
 		<div class="container">

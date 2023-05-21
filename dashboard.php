@@ -17,28 +17,14 @@ if (isset($_SESSION['admin_id'])) {
 
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+  <?php include 'admin_header.php'; ?>
 
-<head>
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="css/dashboard.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-
-<body>
-  <?php if (isset($_SESSION['admin_id'])) : ?>
-
-    <div class="navbar">
-      <h2 style="margin-left:10px; color:white; font-size:28px;">DASHBOARD</h2>
-      <a href="#">Home</a>
-      <div class="dropdown">
-        <a href="#">Users</a>
-        <div class="dropdown-content">
-          <a href="add-user.php">Add User</a>
-          <a href="view-users.php">Delete User</a>
-        </div>
-      </div>
-      <a href="logout.php">Sign Out</a>
-    </div>
     <div class="content">
       <h1>Kategorite e produkteve</h1>
       <canvas id="categoryChart" width="300" height="100">></canvas>
@@ -110,7 +96,6 @@ if (isset($_SESSION['admin_id'])) {
         </script>
 
     </div>
-  <?php endif; ?>
 </body>
 
 </html>

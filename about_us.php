@@ -74,7 +74,8 @@ html {
 </style>
 </head>
 <body>
-
+<?php include 'user_header.php'; ?>
+<div class="content">
 <div class="about-section">
   <h1>About Us Page</h1>
   <p>As a large company, we sell products online.</p>
@@ -85,11 +86,11 @@ html {
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src=".jpg" alt="Endrit" style="width:100%">
+      <img src="images/endrit.jpg" alt="Endrit" style="width:400px; height:500px">
       <div class="container">
         <h2>Endrit Gjokaj</h2>
-        <p class="title">CEO & Founder</p>
-        <p>Endrit Gjokaj is 22 years old. He is from Drenas and has a bachelor's degree in "Hasan Prishtina" University,
+        <p class="title">Student</p>
+        <p>Endrit Gjokaj is 19 years old. He is from Drenas and has a bachelor's degree in "Hasan Prishtina" University,
              while he continued his master's studies in Vienna, Austria.</p>
         <p>endritgjokaj@gmail.com</p>
         <p><button class="button">Contact</button></p>
@@ -99,10 +100,10 @@ html {
 
   <div class="column">
     <div class="card">
-      <img src=".jpg" alt="Verona" style="width:100%">
+      <img src="images/verona.jpg" alt="Verona" style="width:400px; height:500px">
       <div class="container">
         <h2>Verona Kabashi</h2>
-        <p class="title">CEO</p>
+        <p class="title">Student</p>
         <p>Verona Kabashi is 23 years old. She completed her studies at the bachelor's level at "Hasan Prishtina" University 
             and continued her master's studies in Berlin, Germany. </p>
         <p>veronakabashi@gmail.com</p>
@@ -113,10 +114,10 @@ html {
   
   <div class="column">
     <div class="card">
-      <img src=".jpg" alt="Alnita" style="width:100%">
+      <img src="images/alnita.jpg" alt="Alnita" style="width:400px; height:500px">
       <div class="container">
         <h2>Alnita Kabashi</h2>
-        <p class="title">Art Director</p>
+        <p class="title">Student</p>
         <p>Alnita Kabashi is 22 years old. She completed her bachelor's studies at "Hasan Prishtina" University, while she continued her master's studies in Switzerland.</p>
         <p>alnitakabashi@gmail.com</p>
         <p><button class="button">Contact</button></p>
@@ -127,10 +128,10 @@ html {
 
 <div class="column">
     <div class="card">
-      <img src=".../images/psd.jpg" alt="Fisnik" style="width:100%">
+      <img src="images/fisnik.jpg" alt="Fisnik" style="width:400px; height:500px">
       <div class="container">
         <h2>Fisnik Hazrolli</h2>
-        <p class="title">Design</p>
+        <p class="title">Student</p>
         <p>Fisnik Hazrolli is 21 years old. He completed his bachelor's studies at "Hasan Prishtina" University and continued his master's studies in Vienna, Austria together with his colleague Endrit Gjokaj.</p>
         <p>fisnikhazrolli@gmail.com</p>
         <p><button class="button">Contact</button></p>
@@ -141,10 +142,10 @@ html {
 
 <div class="column">
     <div class="card">
-      <img src=".jpg" alt="Alba" style="width:100%">
+      <img src="images/alba.jpg" alt="Alba" style="width:400px; height:500px">
       <div class="container">
         <h2>Alba Thaqi</h2>
-        <p class="title">Design</p>
+        <p class="title">Student</p>
         <p>Alba Thaqi is 22 years old. She completed her bachelor's studies at "Hasan Prishtina" University, while she continued her master's studies in America.</p>
         <p>albathaqi@gmail.com</p>
         <p><button class="button">Contact</button></p>
@@ -152,6 +153,6 @@ html {
     </div>
   </div>
 </div>
-
+</div>
 </body>
 </html>

@@ -73,14 +73,9 @@ if (isset($_SESSION['admin_id'])) {
 </head>
 
 <body>
-  <div class="navbar">
-    <div class="navbar">
-      <h3 style="margin-left:10px; color:white; font-size:28px; margin-top:0px;">ADMIN</h3>
-      <h3 style="margin-left:10px; color:white; font-size:28px; margin-top:0px">DASHBOARD</h3>
-      <a href="dashboard.php">Home</a>
-      <a href="view-users.php">Users</a>
-      <td><a href='dashboard.php?delete=" . $row["id"] . "'></a></td>
-    </div>
+<?php include 'admin_header.php'; ?>
+
+<td><a href='dashboard.php?delete=" . $row["id"] . "'></a></td>      </div>
 
 
   </div>
