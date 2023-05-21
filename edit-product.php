@@ -286,7 +286,7 @@
 
         <?php
         // Include the database connection file
-
+        require_once("sql/connection.php");
 
         // Get the product ID from the URL
         $id = $_GET['id'];
@@ -360,7 +360,6 @@
                 <img src="<?php echo $image['pimage']; ?>" height="100"><br>
                 <input type="checkbox" name="delete_image" value="<?php echo $image['id']; ?>"> Delete<br>
             <?php } ?>
-
 
             <br><br>
             <input type="submit" name="submit" value="Save Changes" />
