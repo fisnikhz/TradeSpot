@@ -70,34 +70,71 @@
   </div>
   <script src="js/openModal.js"></script>
 
-  <!-- <div class="navbar">
-    <h1 class="logo">TradeSpot</h1>
-    <a href="homepage.php">Home</a>
-    <a href="profile.php">Profile</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
-  </div> -->
-  <!-- <div class="content"> -->
-  <?php
-  // establish database connection
-  // $servername = "localhost";
-  // $username = "root";
-  // $password = "";
-  // $dbname = "ueb2";
+    <?php
+    
+    session_start();
+    session_regenerate_id(true);
 
-  // $conn = mysqli_connect($servername, $username, $password, $dbname);
+    include("sql/connection.php");
 
-  // // check connection
-  // if (!$conn) {
-  //   die("Connection failed: " . mysqli_connect_error());
-  // }
-  include("sql/connection.php");
-
-  // handle login form submission
-  if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
-    $username = mysqli_real_escape_string($conn, $_POST['username_or_email']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    if(isset($_SESSION['login_id'])){
+      header('Location: home.php');
+      exit;
+  }
+  require 'google-api/google-api-php-client-2.4.0/vendor/autoload.php';
+  // Creating new google client instance
+  $client = new Google_Client();
+  // Enter your Client ID
+  $client->setClientId('257614048411-fb4inco8n8jupn1urit9jjo3f2anbbs3.apps.googleusercontent.com');
+  // Enter your Client Secrect
+  $client->setClientSecret('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');
+  // Enter the Redirect URL
+  $client->setRedirectUri('http://localhost/UEB_II/login.php');
+  // Adding those scopes which we want to get (email & profile Information)
+  $client->addScope("email");
+  $client->addScope("profile");
+  if(isset($_GET['code'])){
+      $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+      if(!isset($token["error"])){
+          $client->setAccessToken($token['access_token']);
+          // getting profile information
+          $google_oauth = new Google_Service_Oauth2($client);
+          $google_account_info = $google_oauth->userinfo->get();
+      
+          // Storing data into database
+          $id = mysqli_real_escape_string($conn, $google_account_info->id);
+          $full_name = mysqli_real_escape_string($conn, trim($google_account_info->name));
+          $email = mysqli_real_escape_string($conn, $google_account_info->email);
+          $profile_pic = mysqli_real_escape_string($conn, $google_account_info->picture);
+          // checking user already exists or not
+          $get_user = mysqli_query($conn, "SELECT `google_id` FROM `google_users` WHERE `google_id`='$id'");
+          if(mysqli_num_rows($get_user) > 0){
+              $_SESSION['login_id'] = $id; 
+              header('Location: homepage.php');
+              exit;
+          }
+          else{
+              // if user not exists we will insert the user
+              $insert = mysqli_query($conn, "INSERT INTO `google_users`(`google_id`,`name`,`email`,`profile_image`) VALUES('$id','$full_name','$email','$profile_pic')");
+              if($insert){
+                  $_SESSION['login_id'] = $id; 
+                  header('Location: homepage.php');
+                  exit;
+              }
+              else{
+                  echo "Sign up failed!(Something went wrong).";
+              }
+          }
+      }
+      else{
+          header('Location: login.php');
+          exit;
+      }  
+  }
+    // handle login form submission
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
+      $username = mysqli_real_escape_string($conn, $_POST['username_or_email']);
+      $password = mysqli_real_escape_string($conn, $_POST['password']);
 
     $sql = "SELECT * FROM users WHERE username='$username' OR email='$username'";
     $result = mysqli_query($conn, $sql);
