@@ -12,15 +12,8 @@
 </head>
 
 <body>
-    <div class="navbar">
-        <h1 class="logo">TradeSpot</h1>
-        <a href="homepage.php">Home</a>
-        <a href="profile.php">Profile</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="contact.php">Contact</a>
-        <a href = "logout.php">Sign Out</a>
-    </div>
+<?php include 'user_header.php'; ?>
+
     <div class="content">
         <?php
         // establish databa se connection

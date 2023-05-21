@@ -47,19 +47,10 @@
 </head>
 
 <body>
-  <div class="navbar">
-    <h2 style="margin-left:10px; color:white; font-size:28px;">DASHBOARD</h2>
-    <a href="#">Home</a>
-    <div class="dropdown">
-      <a href="#">Users</a>
-      <div class="dropdown-content">
-        <a href="#">Add User</a>
+<?php include 'admin_header.php'; ?>
+
 <td><a href='dashboard.php?delete=" . $row["id"] . "'>Delete</a></td>      </div>
-    </div>
-    <a href="#">Services</a>
-    <a href="contact.php">Contact</a>
-    <a href = "logout.php">Sign Out</a>
-  </div>
+
   <div class="content">
   <?php
   // establish database connection

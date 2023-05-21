@@ -25,7 +25,7 @@ if (isset($_REQUEST["term"])) {
           ORDER BY p.id DESC";
     }
 
-    if ($stmt = mysqli_prepare($link, $sql)) {
+    if ($stmt = mysqli_prepare($conn, $sql)) {
         // Bind variables to the prepared statement as parameters
         mysqli_stmt_bind_param($stmt, "ss", $param_term, $param_term);
 
@@ -59,7 +59,7 @@ if (isset($_REQUEST["term"])) {
 }
 
 // close connection
-mysqli_close($link);
+mysqli_close($conn);
 
 
 ?>

@@ -133,32 +133,8 @@
 </head>
 
 <body>
-  <div class="navbar">
-    <h1 class="logo">TradeSpot</h1>
-    <a href="homepage.php">Home</a>
-    <a href="profile.php">Profile</a>
-    <a href="user-dashboard.php">Dashboard</a>
-    <div class="dropdown">
-      <a href="#">Categories</a>
-      <div class="dropdown-content">
-        <a href="category.php?category=vehicles">Vehicles</a>
-        <a href="category.php?category=technology">Technology</a>
-        <a href="category.php?category=real estate">Real Estate</a>
-        <a href="category.php?category=clothing and accessories">Clothing and Accessories</a>
-        <a href="category.php?category=home and garden">Home and Garden</a>
-        <a href="category.php?category=sports and outdoors">Sports and Outdoors</a>
-        <a href="category.php?category=toys and games">Toys and Games</a>
-        <a href="category.php?category=books and bagazines">Books and Magazines</a>
-        <a href="category.php?category=art and collectible">Art and Collectible</a>
-        <a href="category.php?category=pets and animals">Pets and Animals</a>
-        <a href="category.php?category=business and industrial">Business and Industrial</a>
-      </div>
-    </div>
-    <a href="about_us.php">About</a>
-    <a href="#">Services</a>
-    <a href="contact.php">Contact</a>
-    <a href = "logout.php">Sign Out</a>
-  </div>
+<?php include 'user_header.php'; ?>
+  
   <div class="content">
     <!-- Add a search form to the HTML -->
     <div class="search-box">
