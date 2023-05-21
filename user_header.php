@@ -1,32 +1,47 @@
+<?php
+session_start();
+if (empty($_SESSION['user_id'])) {
+  header("Location: logout.php");
+  exit;
+}
+
+if (isset($_SESSION['user_id'])) {
+  require_once("sql/connection.php");
+  $query = "SELECT * FROM users WHERE id = {$_SESSION['user_id']}";
+  $result = $conn->query($query);
+
+  $row = $result->fetch_assoc();
+}
+
+?>
 <link rel="stylesheet" href="css/hp.css">
 <style>
-    .dropdown {
-      position: relative;
-    }
+  .dropdown {
+    position: relative;
+  }
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      z-index: 1;
-      top: 100%;
-      left: 0;
-      background-color: #333;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  }
 
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
 
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-  </style>
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+</style>
 <!-- user_navbar.php -->
 <div class="navbar">
   <h1 class="logo">TradeSpot</h1>
