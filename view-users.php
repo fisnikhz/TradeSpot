@@ -1,3 +1,19 @@
+<?php
+session_start();
+if (empty($_SESSION['admin_id'])) {
+  header("Location: logout.php");
+  exit;
+}
+
+if (isset($_SESSION['admin_id'])) {
+  require_once("sql/connection.php");
+  $query = "SELECT * FROM users WHERE id = {$_SESSION['admin_id']}";
+  $result = $conn->query($query);
+
+  $row = $result->fetch_assoc();
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -5,7 +21,7 @@
   <title>Vertical Navbar</title>
   <link rel="stylesheet" href="css/dashboard.css">
   <link rel="stylesheet" href="css/view-users.css">
- 
+
   <style>
     table {
       border-collapse: collapse;
@@ -54,69 +70,69 @@
       <a href="#">Users</a>
       <div class="dropdown-content">
         <a href="#">Add User</a>
-<td><a href='dashboard.php?delete=" . $row["id"] . "'>Delete</a></td>      </div>
+        <td><a href='dashboard.php?delete=" . $row["id"] . "'>Delete</a></td>
+      </div>
     </div>
     <a href="#">Services</a>
     <a href="contact.php">Contact</a>
-    <a href = "logout.php">Sign Out</a>
+    <a href="logout.php">Sign Out</a>
   </div>
   <div class="content">
-  <?php
-  // establish database connection
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "ueb2";
+    <?php
+    // establish database connection
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "ueb2";
 
-  $conn = mysqli_connect($servername, $username, $password, $dbname);
-  // check connection
-  if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-  }
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    // check connection
+    if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+    }
 
-  // handle user deletion
-  if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
-    $user_id = $_GET['delete'];
+    // handle user deletion
+    if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
+      $user_id = $_GET['delete'];
 
-    $sql = "DELETE FROM users WHERE id=$user_id";
-    if (mysqli_query($conn, $sql)) {
-      echo "User deleted successfully";
+      $sql = "DELETE FROM users WHERE id=$user_id";
+      if (mysqli_query($conn, $sql)) {
+        echo "User deleted successfully";
+      } else {
+        echo "Error deleting user: " . mysqli_error($conn);
+      }
+    }
+
+    // retrieve all users
+    $sql = "SELECT * FROM users";
+    $result = mysqli_query($conn, $sql);
+
+    // display users in a table
+    if (mysqli_num_rows($result) > 0) {
+      echo "<table>";
+      echo "<tr><th>ID</th><th>Name</th><th>Lastname</th><th>Username</th><th>Phone</th><th>Address</th><th>City</th><th>Email</th><th>Password</th><th>Action</th></tr>";
+      while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row["name"] . "</td>";
+        echo "<td>" . $row["lastname"] . "</td>";
+        echo "<td>" . $row["username"] . "</td>";
+        echo "<td>" . $row["phone"] . "</td>";
+        echo "<td>" . $row["address"] . "</td>";
+        echo "<td>" . $row["City"] . "</td>";
+        echo "<td>" . $row["email"] . "</td>";
+        echo "<td>" . $row["password"] . "</td>";
+        echo "<td><a href='view-users.php?delete=" . $row["id"] . "'>Delete</a></td>";
+        echo "</tr>";
+      }
+      echo "</table>";
     } else {
-      echo "Error deleting user: " . mysqli_error($conn);
+      echo "No users found";
     }
-  }
 
-  // retrieve all users
-  $sql = "SELECT * FROM users";
-  $result = mysqli_query($conn, $sql);
-
-  // display users in a table
-  if (mysqli_num_rows($result) > 0) {
-    echo "<table>";
-    echo "<tr><th>ID</th><th>Name</th><th>Lastname</th><th>Username</th><th>Phone</th><th>Address</th><th>City</th><th>Email</th><th>Password</th><th>Action</th></tr>";
-    while ($row = mysqli_fetch_assoc($result)) {
-      echo "<tr>";
-      echo "<td>" . $row["id"] . "</td>";
-      echo "<td>" . $row["name"] . "</td>";
-      echo "<td>" . $row["lastname"] . "</td>";
-      echo "<td>" . $row["username"] . "</td>";
-      echo "<td>" . $row["phone"] . "</td>";
-      echo "<td>" . $row["address"] . "</td>";
-      echo "<td>" . $row["City"] . "</td>";
-      echo "<td>" . $row["email"] . "</td>";
-      echo "<td>" . $row["password"] . "</td>";
-      echo "<td><a href='view-users.php?delete=" . $row["id"] . "'>Delete</a></td>";
-      echo "</tr>";
-    }
-    echo "</table>";
-  } else {
-    echo "No users found";
-  }
-
-  mysqli_close($conn);
-  ?>
-</div>
+    mysqli_close($conn);
+    ?>
+  </div>
 </body>
 
 </html>
-

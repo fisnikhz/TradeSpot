@@ -109,15 +109,18 @@
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row['password'])) {
           // password is correct, start session and redirect to homepage or dashboard depending on user role
-          session_start();
-          $_SESSION['user_id'] = $row['id'];
+      
           if(!empty($_REQUEST["remember"])) {
-            setcookie ("user_name",$_REQUEST["username_or_email"],time()+ (10 * 365 * 24 * 60 * 60));
-            setcookie ("user_password",$_REQUEST["password"],time()+ (10 * 365 * 24 * 60 * 60));
+            setcookie ("user_name",$_REQUEST["username_or_email"],time()+ (30  * 24 * 60 * 60));
+            setcookie ("user_password",$_REQUEST["password"],time()+ (30 * 24 * 60 * 60));
           }
-          if ($row['email'] == 'admin@admin.com' && $password == 'admin' || ($row['username'] == 'admin')) {
+          if ($row['admin'] == 1) {
+            session_start();
+            $_SESSION['admin_id'] = $row['id'];
             header("Location: dashboard.php");
           } else {
+            session_start();
+            $_SESSION['user_id'] = $row['id'];
             header("Location: homepage.php");
           }
           exit;

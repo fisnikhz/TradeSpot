@@ -62,7 +62,22 @@
     </div>
     <div class="content">
     <?php
-require_once 'sql/connection.php';
+
+session_start();
+if (empty($_SESSION['user_id'])) {
+  header("Location: logout.php");
+  exit;
+}
+
+if (isset($_SESSION['user_id'])) {
+  require_once("sql/connection.php");
+  $query = "SELECT * FROM users WHERE id = {$_SESSION['user_id']}";
+  $result = $conn->query($query);
+
+  $row = $result->fetch_assoc();
+}
+
+
 
 // Process the form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
