@@ -132,7 +132,6 @@ if ($result->num_rows > 0) {
 
         <?php
     }
-
     echo '</table>';
 } else {
     echo 'No questions found.';
