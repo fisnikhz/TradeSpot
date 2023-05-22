@@ -177,7 +177,7 @@
           echo "<div class='product-content'>";
           echo "<h4>" . $row['pname'] . "</h4>";
           echo "<p><b>" . $row['pcategory'] . "</b></p>";
-          echo "<div class='price'>" . $row['pprice'] . "</div>";
+          echo "<div class='price'>" . $row['pprice'] . " €</div>";
           echo "<a href='product-details.php?id=" . $row['id'] . "' class='button'>Buy Now</a>";
           echo "</div>";
 

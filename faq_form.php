@@ -56,21 +56,6 @@
     <div class="content">
     <?php
 
-session_start();
-if (empty($_SESSION['user_id'])) {
-  header("Location: logout.php");
-  exit;
-}
-
-if (isset($_SESSION['user_id'])) {
-  require_once("sql/connection.php");
-  $query = "SELECT * FROM users WHERE id = {$_SESSION['user_id']}";
-  $result = $conn->query($query);
-
-  $row = $result->fetch_assoc();
-}
-
-
 
 // Process the form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -96,11 +81,18 @@ $sql = "SELECT question, answer FROM questions WHERE answer IS NOT NULL";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $question = 'Question: ' . $row['question'];
-        $answer = 'Answer: ' . $row['answer'];
-        $answeredQuestions[] = array('question' => $question, 'answer' => $answer);
-    }
+        while ($row = $result->fetch_assoc()) {
+            // Check if the answer field is not empty or null
+            if (!empty($row['answer'])) {
+                $question = 'Question: ' . $row['question'];
+                $answer = 'Answer: ';
+                $answer .= $row['answer'];
+            } else {
+            }
+
+            $answeredQuestions[] = array('question' => $question, 'answer' => $answer);
+        }
+
 }
 
 // Close the database connection

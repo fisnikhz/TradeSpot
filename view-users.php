@@ -1,19 +1,3 @@
-<?php
-session_start();
-if (empty($_SESSION['admin_id'])) {
-  header("Location: logout.php");
-  exit;
-}
-
-if (isset($_SESSION['admin_id'])) {
-  require_once("sql/connection.php");
-  $query = "SELECT * FROM users WHERE id = {$_SESSION['admin_id']}";
-  $result = $conn->query($query);
-
-  $row = $result->fetch_assoc();
-}
-
-?>
 <!DOCTYPE html>
 <html>
 

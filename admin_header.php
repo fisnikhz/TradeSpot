@@ -21,6 +21,6 @@ if (isset($_SESSION['admin_id'])) {
   <a href="dashboard.php">Home</a>
   <a href="view-users.php">Delete User</a>
   <a href="manage_faq.php">FAQ</a>
+  <a href="logout.php">Sign Out</a>
 </div>
-<a href="logout.php">Sign Out</a>
 </div>

@@ -86,7 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<h3>Contact</h3>
+					<h3>Subscribe</h3>
 				</div>
 			</div>
 			<div class="row justify-content-center">
@@ -95,7 +95,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 						<div class="row no-gutters mb-5">
 							<div class="col-md-7">
 								<div class="contact-wrap w-100 p-md-5 p-4">
-									<h3 class="mb-4">Contact Us</h3>
+									<h3 class="mb-4">Subscribe in TradeSpot</h3>
 									<form method="POST" action="email.php" id="contactForm" name="contactForm" class="contactForm">
 										<div class="row">
 											<div class="col-md-6">

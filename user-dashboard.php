@@ -1,21 +1,7 @@
 <?php
-session_start(); // Start the session to access user data
-
-if (empty($_SESSION['user_id'])) {
-  header("Location: logout.php");
-  exit;
-}
-
-if (isset($_SESSION['user_id'])) {
-  require_once("sql/connection.php");
-  $query = "SELECT * FROM users WHERE id = {$_SESSION['user_id']}";
-  $result = $conn->query($query);
-
-  $row = $result->fetch_assoc();
-}
-
-
+require_once("sql/connection.php");
 // Check if the user has submitted the form
+session_start();
 if (isset($_POST['post'])) {
     // Get the user's ID from the session data
     $user_id = $_SESSION['user_id'];
@@ -49,11 +35,9 @@ if (isset($_POST['post'])) {
                 }
             }
         }
-
         echo ' <script>
           notDisplay();
           showError("Product posted successfully!");
-          //notDisplay();
           </script>';
     } else {
         echo "Error posting product: " . $conn->error;
@@ -149,6 +133,34 @@ $conn->close();
             color: #333;
             border: 2px solid #333;
         }
+    </style>
+    <link rel="stylesheet" href="css/hp.css">
+    <style>
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
         .modal {
             display: none;
@@ -164,7 +176,7 @@ $conn->close();
         }
 
         .modal-content {
-            background-color: #fefefe;
+            background-color: red;
             margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
@@ -191,8 +203,33 @@ $conn->close();
 </head>
 
 <body>
-<?php include 'user_header.php'; ?>
-
+    <!-- <script src="openModal.js"></script> -->
+    <div class="navbar">
+        <h1 class="logo">TradeSpot</h1>
+        <a href="homepage.php">Home</a>
+        <a href="profile.php">Profile</a>
+        <a href="user-dashboard.php">Dashboard</a>
+        <div class="dropdown">
+            <a href="#">Categories</a>
+            <div class="dropdown-content">
+                <a href="category.php?category=vehicles">Vehicles</a>
+                <a href="category.php?category=technology">Technology</a>
+                <a href="category.php?category=real estate">Real Estate</a>
+                <a href="category.php?category=clothing and accessories">Clothing and Accessories</a>
+                <a href="category.php?category=home and garden">Home and Garden</a>
+                <a href="category.php?category=sports and outdoors">Sports and Outdoors</a>
+                <a href="category.php?category=toys and games">Toys and Games</a>
+                <a href="category.php?category=books and bagazines">Books and Magazines</a>
+                <a href="category.php?category=art and collectible">Art and Collectible</a>
+                <a href="category.php?category=pets and animals">Pets and Animals</a>
+                <a href="category.php?category=business and industrial">Business and Industrial</a>
+            </div>
+        </div>
+        <a href="about_us.php">About</a>
+        <a href="faq_form.php">FAQ</a>
+        <a href="contact.php">Contact</a>
+        <a href="logout.php">Sign Out</a>
+    </div>
     <div class="content">
 
         <form method="POST" enctype="multipart/form-data">
@@ -211,13 +248,12 @@ $conn->close();
                 <option value="Art and Collectible">Art and Collectible</option>
                 <option value="Pets and Animals">Pets and Animals</option>
                 <option value="Business and Industrial">Business and Industrial</option>
-
             </select>
             <label>Price:</label><br>
             <input type="text" name="price"><br>
             <label>Description:</label><br>
             <textarea name="description"></textarea><br>
-            <input type="button" value="Add images" id="openModal">
+            <input type="button" value="Add images" id="myModal" onclick="show()">
             <input type="submit" name="post" value="Post">
             <div id="modal" class="modal">
                 <div class="modal-content">
@@ -247,7 +283,7 @@ $conn->close();
 
 
         // When the user clicks the button, open the modal 
-        btn.onclick = function() {
+        function show(){
             modal.style.display = "block";
         }
 
@@ -263,7 +299,6 @@ $conn->close();
             }
         }
     </script>
-
 </body>
 
 </html>

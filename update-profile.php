@@ -19,14 +19,6 @@
         // establish databa se connection
        require_once("sql/connection.php");
         // start session
-        session_start();
-
-        // check if user is logged in
-        if (!isset($_SESSION['user_id'])) {
-            // user is not logged in, redirect to login page
-            header("Location: login.php");
-            exit;
-        }
 
         // handle update form submission
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {

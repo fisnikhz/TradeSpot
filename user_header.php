@@ -5,14 +5,15 @@ if (empty($_SESSION['user_id'])) {
   exit;
 }
 
+ $user_id = 0;
 if (isset($_SESSION['user_id'])) {
   require_once("sql/connection.php");
-  $query = "SELECT * FROM users WHERE id = {$_SESSION['user_id']}";
-  $result = $conn->query($query);
+  $user_id = $_SESSION['user_id'];
+  // $query = "SELECT * FROM users WHERE id = {$_SESSION['user_id']}";
+  // $result = $conn->query($query);
 
-  $row = $result->fetch_assoc();
+  // $row = $result->fetch_assoc();
 }
-
 ?>
 <link rel="stylesheet" href="css/hp.css">
 <style>

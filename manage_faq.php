@@ -1,19 +1,3 @@
-<?php
-session_start();
-if (empty($_SESSION['admin_id'])) {
-  header("Location: logout.php");
-  exit;
-}
-
-if (isset($_SESSION['admin_id'])) {
-  require_once("sql/connection.php");
-  $query = "SELECT * FROM users WHERE id = {$_SESSION['admin_id']}";
-  $result = $conn->query($query);
-
-  $row = $result->fetch_assoc();
-}
-
-?>
 <!DOCTYPE html>
 <html>
 
@@ -81,18 +65,7 @@ if (isset($_SESSION['admin_id'])) {
   </div>
   <div class="content">
     <?php
-    // Establish database connection
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "ueb2";
-
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-    // Check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
+    require_once("sql/connection.php");
 
     // Process the form submission
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -112,16 +112,8 @@
     // establish database connection
     require_once("sql/connection.php");
 
-    // start session
-    session_start();
-    $user_id = $_SESSION['user_id'];
-    // check if user is logged in
-    if (!isset($user_id)) {
-      // user is not logged in, redirect to login page
-      header("Location: login.php");
-      exit;
-    }
 
+    $user_id = $_SESSION['user_id'];
     // handle update form submission
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
       // sanitize input data
@@ -229,12 +221,12 @@
         if ($result) {
           // Redirect to the user's profile page with a success message
           echo "Product marked as sold successfully!<br>";
-          header("Location: profile.php");
+          //("Location: profile.php");
           exit();
         } else {
           // Redirect to the user's profile page with an error message
           echo "Error marking product as sold.!<br>";
-          header("Location: profile.php");
+         // header("Location: profile.php");
           exit();
         }
 

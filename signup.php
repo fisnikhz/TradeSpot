@@ -35,20 +35,10 @@
     </div> -->
     <!-- <div class="content"> -->
         <?php
-        // establish database connection
-        // $servername = "localhost";
-        // $username = "root";
-        // $password = "";
-        // $dbname = "ueb2";
-
-        // $conn = mysqli_connect($servername, $username, $password, $dbname);
 
         require_once("sql/connection.php");
 
-        // check connection
-        // if (!$conn) {
-        //     die("Connection failed: " . mysqli_connect_error());
-        // }
+
 
         // handle sign up form submission
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
